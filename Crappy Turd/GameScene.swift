@@ -29,7 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Create the turd atlas for animation
     let turdAtlas = SKTextureAtlas(named: "player")
     var turdSprites: [SKTexture] = [] // TODO: review this
-    var turd = SKSpriteNode()
+    var turd: SKSpriteNode?
     var repeatActionTurd = SKAction()
     
     func createScene() {
@@ -58,7 +58,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.turdSprites.append(self.turdAtlas.textureNamed("poo-up"))
         
         self.turd = self.createTurd()
-        self.addChild(self.turd)
+        guard let turd = self.turd else { return }
+        self.addChild(turd)
         
         // Prepare to animate the turd and repeat the animation forever
         let animateTurd = SKAction.animate(with: self.turdSprites, timePerFrame: 0.1)
@@ -93,7 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if self.isGameStarted == false {
             // 1
             self.isGameStarted = true
-            self.turd.physicsBody?.affectedByGravity = true
+            self.turd?.physicsBody?.affectedByGravity = true
             // TODO: create 'Pause' button here
             
             // 2
@@ -105,18 +106,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // TODO: remove tap to play button
             
             // 3
-            self.turd.run(self.repeatActionTurd)
+            self.turd?.run(self.repeatActionTurd)
             
             // TODO: add pillars here
             
-            self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+            self.turd?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             
         } else {
             // 4
             if self.isDead == false {
-                self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+                self.turd?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
     }
