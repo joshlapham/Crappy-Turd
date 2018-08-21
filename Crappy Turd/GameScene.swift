@@ -165,6 +165,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(tapToPlay)
     }
     
+    func restartScene() {
+        self.removeAllChildren()
+        self.removeAllActions()
+        self.isDead = false
+        self.isGameStarted = false
+        self.score = 0
+        self.createScene()
+    }
+    
     // MARK: SKScene
     override func didMove(to view: SKView) {
         self.createScene()
