@@ -83,7 +83,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard self.isDead == false else { return }
         
         enumerateChildNodes(withName: "background") { (node, error) in
-            let bg = node as! SKSpriteNode // TODO: don't force unwrap
+            guard let bg = node as? SKSpriteNode else { return }
+            
             bg.position = CGPoint(x: bg.position.x - 2, y: bg.position.y)
             
             if bg.position.x <= -bg.size.width {
