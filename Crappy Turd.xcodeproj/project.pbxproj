@@ -15,6 +15,7 @@
 		68EB6C4F212BE50400674839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EB6C4D212BE50400674839 /* Main.storyboard */; };
 		68EB6C51212BE50500674839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68EB6C50212BE50500674839 /* Assets.xcassets */; };
 		68EB6C54212BE50500674839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EB6C52212BE50500674839 /* LaunchScreen.storyboard */; };
+		68EB6C5C212BE79A00674839 /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB6C5B212BE79A00674839 /* GameElements.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		68EB6C50212BE50500674839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68EB6C53212BE50500674839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68EB6C55212BE50500674839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68EB6C5B212BE79A00674839 /* GameElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameElements.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				68EB6C47212BE50400674839 /* Actions.sks */,
 				68EB6C49212BE50400674839 /* GameScene.swift */,
 				68EB6C4B212BE50400674839 /* GameViewController.swift */,
+				68EB6C5B212BE79A00674839 /* GameElements.swift */,
 				68EB6C4D212BE50400674839 /* Main.storyboard */,
 				68EB6C50212BE50500674839 /* Assets.xcassets */,
 				68EB6C52212BE50500674839 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68EB6C5C212BE79A00674839 /* GameElements.swift in Sources */,
 				68EB6C4A212BE50400674839 /* GameScene.swift in Sources */,
 				68EB6C4C212BE50400674839 /* GameViewController.swift in Sources */,
 				68EB6C44212BE50400674839 /* AppDelegate.swift in Sources */,
