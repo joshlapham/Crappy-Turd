@@ -80,7 +80,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         btmWall.physicsBody?.isDynamic = false
         btmWall.physicsBody?.affectedByGravity = false
         
-        topWall.zRotation = CGFloat(M_PI)
+        topWall.zRotation = CGFloat(Double.pi)
         
         wallPair.addChild(topWall)
         wallPair.addChild(btmWall)
