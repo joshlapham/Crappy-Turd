@@ -231,6 +231,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        let firstBody = contact.bodyA
+        let secondBody = contact.bodyB
+        
+        // TODO: clean up this mess somehow
+        if firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.pillarCategory || firstBody.categoryBitMask == CollisionBitMask.pillarCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory || firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.groundCategory || firstBody.categoryBitMask == CollisionBitMask.groundCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory {
+            enumerateChildNodes(withName: "wallPair", using: { (node, error ) in
+                node.speed = 0
+                self.removeAllActions()
+            })
+            
+            if self.isDead == false {
+                self.isDead = true
+                // TODO: create Restart button here
+                // TODO: remove Pause button here
+                self.turd?.removeAllActions()
+            }
+            
+        } else if firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.bacteriaCategory {
+            // TODO: play sound here
+            self.score += 1
+            // TODO: update score label here
+            secondBody.node?.removeFromParent()
+            
+        } else if firstBody.categoryBitMask == CollisionBitMask.bacteriaCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory {
+            // TODO: play sound here
+            self.score += 1
+            // TODO: update score label here
+            firstBody.node?.removeFromParent()
+        }
+    }
 }
 
 extension GameScene {
