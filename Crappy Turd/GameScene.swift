@@ -85,6 +85,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.isGameStarted == false {
+            // 1
+            self.isGameStarted = true
+            self.turd.physicsBody?.affectedByGravity = true
+            // TODO: create 'Pause' button here
+            
+            // 2
+            // TODO: remove logo
+            // TODO: remove tap to play button
+            
+            // 3
+            self.turd.run(self.repeatActionTurd)
+            
+            // TODO: add pillars here
+            
+            self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+            
+        } else {
+            // 4
+            if self.isDead == false {
+                self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+            }
+        }
+    }
 }
 
 // MARK: - Helper methods
