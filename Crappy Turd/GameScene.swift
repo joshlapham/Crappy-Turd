@@ -23,8 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var pauseButton: SKSpriteNode?
     var logoImage: SKSpriteNode?
     
-    var wallPair = SKNode()
-    var moveAndRemove = SKAction()
+    var wallPair: SKNode?
+    var moveAndRemove: SKAction?
     
     // Create the turd atlas for animation
     let turdAtlas = SKTextureAtlas(named: "player")
