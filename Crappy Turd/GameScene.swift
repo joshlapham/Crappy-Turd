@@ -239,6 +239,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
+        
+        for touch in touches {
+            let location = touch.location(in: self)
+            
+            // Restart button toggle
+            if self.isDead == true {
+                if self.restartButton?.contains(location) == true {
+                    // TODO: refactor this to extension on `UserDefaults`
+                    // TODO: refactor to use App Constants for keys
+                    if UserDefaults.standard.object(forKey: "HighScore") != nil {
+                        let highScore = UserDefaults.standard.integer(forKey: "HighScore")
+                        
+                        if highScore < self.score {
+                            UserDefaults.standard.set(self.score, forKey: "HighScore")
+                        }
+                    } else {
+                        UserDefaults.standard.set(0, forKey: "HighScore")
+                    }
+                    
+                    self.restartScene()
+                }
+                
+            } else {
+                // Pause button toggle
+                if self.pauseButton?.contains(location) == true {
+                    if self.isPaused == false {
+                        self.isPaused = true
+                        // TODO: update Pause button texture image here
+                    } else {
+                        self.isPaused == false
+                        // TODO: update Pause button texture image here
+                    }
+                }
+            }
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
