@@ -28,9 +28,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Create the turd atlas for animation
     let turdAtlas = SKTextureAtlas(named: "player")
-    var birdSprites: [AnyObject] = [] // TODO: review this
-    var bird = SKSpriteNode()
-    var repeatActionBird = SKAction()
+    var turdSprites: [SKTexture] = [] // TODO: review this
+    var turd = SKSpriteNode()
+    var repeatActionTurd = SKAction()
     
     func createScene() {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -51,6 +51,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.size = (self.view?.bounds.size)! // TODO: don't force unwrap
             self.addChild(background)
         }
+        
+        // Set up the turd atlas for animation
+        self.turdSprites.append(self.turdAtlas.textureNamed("poo-down"))
+        self.turdSprites.append(self.turdAtlas.textureNamed("poo-mid"))
+        self.turdSprites.append(self.turdAtlas.textureNamed("poo-up"))
+        
+        self.turd = self.createTurd()
+        self.addChild(self.turd)
+        
+        // Prepare to animate the turd and repeat the animation forever
+        let animateTurd = SKAction.animate(with: self.turdSprites, timePerFrame: 0.1)
+        self.repeatActionTurd = SKAction.repeatForever(animateTurd)
     }
     
     // MARK: SKScene
@@ -72,5 +84,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 bg.position = CGPoint(x: bg.position.x + bg.size.width * 2, y: bg.position.y)
             }
         }
+    }
+}
+
+// MARK: - Helper methods
+extension GameScene {
+    func createTurd() -> SKSpriteNode {
+        // 1
+        let turd = SKSpriteNode(texture: self.turdAtlas.textureNamed("poo-down"))
+        turd.size = CGSize(width: 50, height: 50)
+        turd.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        // 2
+        turd.physicsBody = SKPhysicsBody(circleOfRadius: turd.size.width / 2)
+        turd.physicsBody?.linearDamping = 1.1
+        turd.physicsBody?.restitution = 0
+        
+        // 3
+        turd.physicsBody?.categoryBitMask = CollisionBitMask.turdCategory
+        turd.physicsBody?.collisionBitMask = CollisionBitMask.pillarCategory | CollisionBitMask.groundCategory
+        turd.physicsBody?.contactTestBitMask = CollisionBitMask.pillarCategory | CollisionBitMask.bacteriaCategory | CollisionBitMask.groundCategory
+        
+        // 4
+        turd.physicsBody?.affectedByGravity = false
+        turd.physicsBody?.isDynamic = true
+        
+        return turd
     }
 }
