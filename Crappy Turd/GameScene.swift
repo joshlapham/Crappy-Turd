@@ -9,11 +9,45 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
-    
+class GameScene: SKScene, SKPhysicsContactDelegate {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    var isGameStarted: Bool = false
+    var isDead: Bool = false
+    
+    var score: Int = 0
+    
+    var scoreLabel = SKLabelNode()
+    var highScoreLabel = SKLabelNode()
+    var tapToPlayLabel = SKLabelNode()
+    
+    var restartButton = SKSpriteNode()
+    var pauseButton = SKSpriteNode()
+    var logoImage = SKSpriteNode()
+    
+    var wallPair = SKNode()
+    var moveAndRemove = SKAction()
+    
+    // Create the turd atlas for animation
+    let turdAtlas = SKTextureAtlas(named: "player")
+    var birdSprites: [AnyObject] = [] // TODO: review this
+    var bird = SKSpriteNode()
+    var repeatActionBird = SKAction()
+    
+    func createScene() {
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        self.physicsBody?.categoryBitMask = CollisionBitMask.groundCategory
+        self.physicsBody?.collisionBitMask = CollisionBitMask.turdCategory
+        self.physicsBody?.contactTestBitMask = CollisionBitMask.turdCategory
+        self.physicsBody?.isDynamic = false
+        self.physicsBody?.affectedByGravity = false
+        
+        self.physicsWorld.contactDelegate = self
+        self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+    }
+    
+    // MARK: SKScene
     override func didMove(to view: SKView) {
         
         // Get label node from scene and store it for use later
