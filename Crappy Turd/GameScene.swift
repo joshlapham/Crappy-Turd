@@ -63,6 +63,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Prepare to animate the turd and repeat the animation forever
         let animateTurd = SKAction.animate(with: self.turdSprites, timePerFrame: 0.1)
         self.repeatActionTurd = SKAction.repeatForever(animateTurd)
+        
+        // Add logo
+        self.createLogo()
     }
     
     // MARK: SKScene
@@ -95,6 +98,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // 2
             // TODO: remove logo
+            self.logoImage.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
+                self.logoImage.removeFromParent()
+            })
+            
             // TODO: remove tap to play button
             
             // 3
@@ -138,5 +145,15 @@ extension GameScene {
         turd.physicsBody?.isDynamic = true
         
         return turd
+    }
+    
+    func createLogo() {
+        self.logoImage = SKSpriteNode()
+        self.logoImage = SKSpriteNode(imageNamed: "title-crappyturd")
+        self.logoImage.size = CGSize(width: 376, height: 147)
+        self.logoImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 100)
+        self.logoImage.setScale(0.5)
+        self.addChild(self.logoImage)
+        self.logoImage.run(SKAction.scale(to: 1.0, duration: 0.3))
     }
 }
