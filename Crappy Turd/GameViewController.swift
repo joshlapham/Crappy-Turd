@@ -17,17 +17,13 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                scene.scaleMode = .resizeFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
+            let scene = GameScene(size: view.bounds.size)
+            scene.scaleMode = .resizeFill
             
             view.ignoresSiblingOrder = false
             view.showsFPS = false
             view.showsNodeCount = false
+            view.presentScene(scene)
         }
     }
     
