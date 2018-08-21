@@ -21,7 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var restartButton = SKSpriteNode()
     var pauseButton = SKSpriteNode()
-    var logoImage = SKSpriteNode()
+    var logoImage: SKSpriteNode?
     
     var wallPair = SKNode()
     var moveAndRemove = SKAction()
@@ -66,7 +66,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.repeatActionTurd = SKAction.repeatForever(animateTurd)
         
         // Add logo
-        self.createLogo()
+        self.logoImage = self.createLogo()
+        guard let logoImage = self.logoImage else { return }
+        self.addChild(logoImage)
     }
     
     // MARK: SKScene
@@ -99,8 +101,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // 2
             // Remove logo
-            self.logoImage.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
-                self.logoImage.removeFromParent()
+            self.logoImage?.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
+                self.logoImage?.removeFromParent()
             })
             
             // TODO: remove tap to play button
@@ -148,13 +150,13 @@ extension GameScene {
         return turd
     }
     
-    func createLogo() {
-        self.logoImage = SKSpriteNode()
-        self.logoImage = SKSpriteNode(imageNamed: "title-crappyturd")
-        self.logoImage.size = CGSize(width: 376, height: 147)
-        self.logoImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 100)
-        self.logoImage.setScale(0.5)
-        self.addChild(self.logoImage)
-        self.logoImage.run(SKAction.scale(to: 1.0, duration: 0.3))
+    func createLogo() -> SKSpriteNode {
+        let logoImage = SKSpriteNode(imageNamed: "title-crappyturd")
+        logoImage.size = CGSize(width: 376, height: 147)
+        logoImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 100)
+        logoImage.setScale(0.5)
+        logoImage.run(SKAction.scale(to: 1.0, duration: 0.3))
+        
+        return logoImage
     }
 }
