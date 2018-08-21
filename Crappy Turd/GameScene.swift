@@ -15,12 +15,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var score: Int = 0
     
-    var scoreLabel = SKLabelNode()
-    var highScoreLabel = SKLabelNode()
-    var tapToPlayLabel = SKLabelNode()
+    var scoreLabel: SKLabelNode?
+    var highScoreLabel: SKLabelNode?
+    var tapToPlayLabel: SKLabelNode?
     
-    var restartButton = SKSpriteNode()
-    var pauseButton = SKSpriteNode()
+    var restartButton: SKSpriteNode?
+    var pauseButton: SKSpriteNode?
     var logoImage: SKSpriteNode?
     
     var wallPair = SKNode()
