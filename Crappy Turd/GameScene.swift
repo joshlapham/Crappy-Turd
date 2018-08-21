@@ -207,7 +207,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let spawn = SKAction.run({
                 () in
                 self.wallPair = self.createWallPair()
-                self.addChild(self.wallPair) // TODO: dont force unwrap
+                self.addChild(self.wallPair)
             })
             
             let delay = SKAction.wait(forDuration: 1.5)
