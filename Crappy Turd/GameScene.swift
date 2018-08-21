@@ -29,8 +29,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Create the turd atlas for animation
     let turdAtlas = SKTextureAtlas(named: "player")
     var turdSprites: [SKTexture] = []
-    var turd: SKSpriteNode?
     var repeatActionTurd: SKAction?
+    
+    lazy var turd: SKSpriteNode? = {
+        let turd = SKSpriteNode(texture: self.turdAtlas.textureNamed("poo-down"))
+        turd.size = CGSize(width: 50, height: 50)
+        turd.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        turd.physicsBody = SKPhysicsBody(circleOfRadius: turd.size.width / 2)
+        turd.physicsBody?.linearDamping = 1.1
+        turd.physicsBody?.restitution = 0
+        
+        turd.physicsBody?.categoryBitMask = CollisionBitMask.turdCategory
+        turd.physicsBody?.collisionBitMask = CollisionBitMask.pillarCategory | CollisionBitMask.groundCategory
+        turd.physicsBody?.contactTestBitMask = CollisionBitMask.pillarCategory | CollisionBitMask.bacteriaCategory | CollisionBitMask.groundCategory
+        
+        turd.physicsBody?.affectedByGravity = false
+        turd.physicsBody?.isDynamic = true
+        
+        return turd
+    }()
     
     func createScene() {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -57,7 +75,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.turdSprites.append(self.turdAtlas.textureNamed("poo-mid"))
         self.turdSprites.append(self.turdAtlas.textureNamed("poo-up"))
         
-        self.turd = self.createTurd()
         guard let turd = self.turd else { return }
         self.addChild(turd)
         
@@ -129,29 +146,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 // MARK: - Helper methods
 extension GameScene {
-    func createTurd() -> SKSpriteNode {
-        // 1
-        let turd = SKSpriteNode(texture: self.turdAtlas.textureNamed("poo-down"))
-        turd.size = CGSize(width: 50, height: 50)
-        turd.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        
-        // 2
-        turd.physicsBody = SKPhysicsBody(circleOfRadius: turd.size.width / 2)
-        turd.physicsBody?.linearDamping = 1.1
-        turd.physicsBody?.restitution = 0
-        
-        // 3
-        turd.physicsBody?.categoryBitMask = CollisionBitMask.turdCategory
-        turd.physicsBody?.collisionBitMask = CollisionBitMask.pillarCategory | CollisionBitMask.groundCategory
-        turd.physicsBody?.contactTestBitMask = CollisionBitMask.pillarCategory | CollisionBitMask.bacteriaCategory | CollisionBitMask.groundCategory
-        
-        // 4
-        turd.physicsBody?.affectedByGravity = false
-        turd.physicsBody?.isDynamic = true
-        
-        return turd
-    }
-    
     func createLogo() -> SKSpriteNode {
         let logoImage = SKSpriteNode(imageNamed: "title-crappyturd")
         logoImage.size = CGSize(width: 376, height: 147)
