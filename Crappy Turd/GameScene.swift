@@ -93,7 +93,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wallPair.position.y = wallPair.position.y +  randomPosition
         wallPair.addChild(flowerNode)
         
-        // TODO: how to handle this?
         wallPair.run(self.moveAndRemove)
         
         return wallPair
@@ -205,15 +204,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.turd?.run(action)
             
             // Add pipes/pillars
-//            guard let wallPair = self.wallPair else { return }
-            
-            // TODO: fix exception here -- maybe `wallPair` shouldn't be a lazy var?
-            /*
-             'Attemped to add a SKNode which already has a parent: <SKNode> name:'wallPair' position:{-203.14006042480469, -156.02299499511719} scale:{1.00, 1.00} accumulatedFrame:{{208.10800170898438, -367.77301025390625}, {55.5, 1159.4959716796875}}'
-             */
-            
-            
-            
             let spawn = SKAction.run({
                 () in
                 self.wallPair = self.createWallPair()
@@ -228,12 +218,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let distance = CGFloat(self.frame.width + self.wallPair.frame.width)
             let movePillars = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
             let removePillars = SKAction.removeFromParent()
-            
-            // TODO: this might conflict with logic inside `wallPair` lazy var maybe?
             self.moveAndRemove = SKAction.sequence([movePillars, removePillars])
-            
-            // TODO: should we be doing this here?
-//            guard let moveAndRemoveAction = self.moveAndRemove else { return nil }
             self.wallPair.run(self.moveAndRemove)
             
             self.turd?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
