@@ -17,7 +17,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabel: SKLabelNode?
     var highScoreLabel: SKLabelNode?
-    var tapToPlayLabel: SKLabelNode?
+    
+    lazy var tapToPlayLabel: SKLabelNode? = {
+        let taptoplayLbl = SKLabelNode()
+        taptoplayLbl.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
+        taptoplayLbl.text = "Tap anywhere to play"
+        taptoplayLbl.fontColor = UIColor(red: 63/255, green: 79/255, blue: 145/255, alpha: 1.0)
+        taptoplayLbl.zPosition = 5
+        taptoplayLbl.fontSize = 20
+        taptoplayLbl.fontName = "HelveticaNeue"
+        return taptoplayLbl
+    }()
     
     var restartButton: SKSpriteNode?
     var pauseButton: SKSpriteNode?
@@ -94,6 +104,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Add logo
         guard let logoImage = self.logoImage else { return }
         self.addChild(logoImage)
+        
+        // Add 'tap to play'
+        guard let tapToPlay = self.tapToPlayLabel else { return }
+        self.addChild(tapToPlay)
     }
     
     // MARK: SKScene
@@ -102,8 +116,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-        
         guard self.isGameStarted == true else { return }
         guard self.isDead == false else { return }
         
@@ -120,20 +132,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.isGameStarted == false {
-            // 1
             self.isGameStarted = true
             self.turd?.physicsBody?.affectedByGravity = true
+            
             // TODO: create 'Pause' button here
             
-            // 2
             // Remove logo
             self.logoImage?.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
                 self.logoImage?.removeFromParent()
             })
             
-            // TODO: remove tap to play button
+            // Remove 'tap to play' label
+            self.tapToPlayLabel?.removeFromParent()
             
-            // 3
             guard let action = self.repeatActionTurd else { return }
             self.turd?.run(action)
             
@@ -143,7 +154,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             
         } else {
-            // 4
             if self.isDead == false {
                 self.turd?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
