@@ -28,9 +28,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Create the turd atlas for animation
     let turdAtlas = SKTextureAtlas(named: "player")
-    var turdSprites: [SKTexture] = [] // TODO: review this
+    var turdSprites: [SKTexture] = []
     var turd: SKSpriteNode?
-    var repeatActionTurd = SKAction()
+    var repeatActionTurd: SKAction?
     
     func createScene() {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -108,7 +108,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // TODO: remove tap to play button
             
             // 3
-            self.turd?.run(self.repeatActionTurd)
+            guard let action = self.repeatActionTurd else { return }
+            self.turd?.run(action)
             
             // TODO: add pillars here
             
