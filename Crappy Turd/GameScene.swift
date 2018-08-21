@@ -45,6 +45,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = self
         self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        
+        for i in 0..<2 {
+            let background = SKSpriteNode(imageNamed: "")
+            background.anchorPoint = CGPoint(x: 0, y: 0)
+            background.position = CGPoint(x: CGFloat(i) * self.frame.width, y: 0)
+            background.name = "background"
+            background.size = (self.view?.bounds.size)! // TODO: don't force unwrap
+            self.addChild(background)
+        }
     }
     
     // MARK: SKScene
