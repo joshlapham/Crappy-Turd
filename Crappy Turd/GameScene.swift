@@ -97,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // TODO: create 'Pause' button here
             
             // 2
-            // TODO: remove logo
+            // Remove logo
             self.logoImage.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
                 self.logoImage.removeFromParent()
             })
