@@ -42,7 +42,62 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return logoImage
     }()
     
-    var wallPair: SKNode?
+    lazy var wallPair: SKNode? = {
+        let flowerNode = SKSpriteNode(imageNamed: "bacteria-1")
+        flowerNode.size = CGSize(width: 21, height: 21)
+        flowerNode.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2)
+        flowerNode.physicsBody = SKPhysicsBody(rectangleOf: flowerNode.size)
+        flowerNode.physicsBody?.affectedByGravity = false
+        flowerNode.physicsBody?.isDynamic = false
+        flowerNode.physicsBody?.categoryBitMask = CollisionBitMask.bacteriaCategory
+        flowerNode.physicsBody?.collisionBitMask = 0
+        flowerNode.physicsBody?.contactTestBitMask = CollisionBitMask.turdCategory
+        flowerNode.color = SKColor.blue
+        
+        let wallPair = SKNode()
+        wallPair.name = "wallPair"
+        
+        let topWall = SKSpriteNode(imageNamed: "pipe-1")
+        let btmWall = SKSpriteNode(imageNamed: "pipe-2")
+        
+        topWall.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 + 420)
+        btmWall.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 - 420)
+        
+        topWall.setScale(0.5)
+        btmWall.setScale(0.5)
+        
+        topWall.physicsBody = SKPhysicsBody(rectangleOf: topWall.size)
+        topWall.physicsBody?.categoryBitMask = CollisionBitMask.pillarCategory
+        topWall.physicsBody?.collisionBitMask = CollisionBitMask.turdCategory
+        topWall.physicsBody?.contactTestBitMask = CollisionBitMask.turdCategory
+        topWall.physicsBody?.isDynamic = false
+        topWall.physicsBody?.affectedByGravity = false
+        
+        btmWall.physicsBody = SKPhysicsBody(rectangleOf: btmWall.size)
+        btmWall.physicsBody?.categoryBitMask = CollisionBitMask.pillarCategory
+        btmWall.physicsBody?.collisionBitMask = CollisionBitMask.turdCategory
+        btmWall.physicsBody?.contactTestBitMask = CollisionBitMask.turdCategory
+        btmWall.physicsBody?.isDynamic = false
+        btmWall.physicsBody?.affectedByGravity = false
+        
+        topWall.zRotation = CGFloat(M_PI)
+        
+        wallPair.addChild(topWall)
+        wallPair.addChild(btmWall)
+        
+        wallPair.zPosition = 1
+        
+        let randomPosition = self.random(min: -200, max: 200)
+        wallPair.position.y = wallPair.position.y +  randomPosition
+        wallPair.addChild(flowerNode)
+        
+        // TODO: should we be doing this here?
+        guard let moveAndRemoveAction = self.moveAndRemove else { return nil }
+        wallPair.run(moveAndRemoveAction)
+        
+        return wallPair
+    }()
+    
     var moveAndRemove: SKAction?
     
     // Create the turd atlas for animation
@@ -159,5 +214,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
+    }
+}
+
+extension GameScene {
+    func random() -> CGFloat{
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    func random(min : CGFloat, max : CGFloat) -> CGFloat{
+        return random() * (max - min) + min
     }
 }
