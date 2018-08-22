@@ -19,14 +19,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var highScoreLabel: SKLabelNode?
     
     lazy var tapToPlayLabel: SKLabelNode? = {
-        let taptoplayLbl = SKLabelNode()
-        taptoplayLbl.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
-        taptoplayLbl.text = "Tap anywhere to play"
-        taptoplayLbl.fontColor = UIColor(red: 63/255, green: 79/255, blue: 145/255, alpha: 1.0)
-        taptoplayLbl.zPosition = 5
-        taptoplayLbl.fontSize = 20
-        taptoplayLbl.fontName = "HelveticaNeue"
-        return taptoplayLbl
+        let label = SKLabelNode()
+        label.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
+        label.text = "Tap to Play"
+        label.fontColor = UIColor.white
+        label.zPosition = 5
+        label.fontSize = 20
+        label.fontName = "HelveticaNeue"
+        
+        return label
     }()
     
     lazy var restartButton: SKSpriteNode = {
@@ -36,6 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         button.zPosition = 6
         button.setScale(0)
         button.run(SKAction.scale(to: 1.0, duration: 0.3))
+        
         return button
     }()
     
