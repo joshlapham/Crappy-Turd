@@ -228,8 +228,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             })
             
             let delay = SKAction.wait(forDuration: 1.5)
-            let SpawnDelay = SKAction.sequence([spawn, delay])
-            let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
+            let spawnDelay = SKAction.sequence([spawn, delay])
+            let spawnDelayForever = SKAction.repeatForever(spawnDelay)
             self.run(spawnDelayForever)
             
             let distance = CGFloat(self.frame.width + self.wallPair.frame.width)
