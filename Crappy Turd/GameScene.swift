@@ -144,7 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsBody?.affectedByGravity = false
         
         self.physicsWorld.contactDelegate = self
-//        self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        //        self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
         
         for i in 0..<2 {
             let background = SKSpriteNode(imageNamed: "background")
@@ -177,6 +177,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func restartScene() {
         self.removeAllChildren()
         self.removeAllActions()
+        //        self.restartButton.removeFromParent() // TODO: this isnt working either
         self.isDead = false
         self.isGameStarted = false
         self.score = 0
