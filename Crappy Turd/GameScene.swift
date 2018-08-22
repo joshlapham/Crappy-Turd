@@ -298,6 +298,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.removeAllActions()
             })
             
+            // TODO: this method is being called after `restartScene` and `createScene` methods have been called -- maybe because `turd` property is still on-screen, and detects immediately that it's lying on the ground or crashed into a pipe? maybe children aren't being removed from parent correctly, because `turd` is a lazy var? or should we be explicit and remove it from the scene when we restart?
             if self.isDead == false {
                 self.isDead = true
                 // Create Restart button
