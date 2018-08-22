@@ -30,7 +30,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return label
     }()
     
-    lazy var restartButton: SKSpriteNode = {
+    var restartButton: SKSpriteNode = SKSpriteNode()
+    
+    func createRestartButton() -> SKSpriteNode {
         let button = SKSpriteNode(imageNamed: "title-gameover")
         button.size = CGSize(width: 764 / 3, height: 193 / 3)
         button.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
@@ -39,7 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         button.run(SKAction.scale(to: 1.0, duration: 0.3))
         
         return button
-    }()
+    }
     
     var pauseButton: SKSpriteNode?
     
@@ -177,6 +179,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func restartScene() {
         self.removeAllChildren()
         self.removeAllActions()
+        self.turd?.removeFromParent()
         //        self.restartButton.removeFromParent() // TODO: this isnt working either
         self.isDead = false
         self.isGameStarted = false
@@ -302,6 +305,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if self.isDead == false {
                 self.isDead = true
                 // Create Restart button
+                self.restartButton = self.createRestartButton()
                 self.addChild(self.restartButton)
                 
                 // TODO: remove Pause button here
