@@ -29,7 +29,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return taptoplayLbl
     }()
     
-    var restartButton: SKSpriteNode?
+    lazy var restartButton: SKSpriteNode = {
+        let button = SKSpriteNode(imageNamed: "title-gameover")
+        button.size = CGSize(width: 764 / 2, height: 193 / 2)
+        button.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
+        button.zPosition = 6
+        button.setScale(0)
+        button.run(SKAction.scale(to: 1.0, duration: 0.3))
+        return button
+    }()
+    
     var pauseButton: SKSpriteNode?
     
     lazy var logoImage: SKSpriteNode? = {
@@ -245,7 +254,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // Restart button toggle
             if self.isDead == true {
-                if self.restartButton?.contains(location) == true {
+                if self.restartButton.contains(location) == true {
                     // TODO: refactor this to extension on `UserDefaults`
                     // TODO: refactor to use App Constants for keys
                     if UserDefaults.standard.object(forKey: "HighScore") != nil {
@@ -290,6 +299,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if self.isDead == false {
                 self.isDead = true
                 // TODO: create Restart button here
+                self.addChild(self.restartButton)
+                
                 // TODO: remove Pause button here
                 self.turd?.removeAllActions()
             }
