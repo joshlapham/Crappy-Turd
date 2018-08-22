@@ -18,7 +18,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode?
     var highScoreLabel: SKLabelNode?
     
-    lazy var tapToPlayLabel: SKLabelNode = {
+    var tapToPlayLabel: SKLabelNode = SKLabelNode()
+    
+    func createTapToPlayLabel() -> SKLabelNode {
         let label = SKLabelNode()
         label.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
         label.text = "Tap to Play"
@@ -28,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         label.fontName = "HelveticaNeue"
         
         return label
-    }()
+    }
     
     var restartButton: SKSpriteNode = SKSpriteNode()
     
@@ -179,6 +181,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(self.logoImage)
         
         // Add 'Tap to Play' label
+        self.tapToPlayLabel = self.createTapToPlayLabel()
         self.addChild(self.tapToPlayLabel)
     }
     
