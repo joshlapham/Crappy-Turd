@@ -101,6 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var wallPair: SKNode = SKNode()
     
     func createWallPair() -> SKNode {
+        // TODO: randomise image selection here, to use rest of 'bacteria' image assets
         let flowerNode = SKSpriteNode(imageNamed: "bacteria-1")
         flowerNode.size = CGSize(width: 21, height: 21)
         flowerNode.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2)
