@@ -15,8 +15,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var score: Int = 0
     
-    var scoreLabel: SKLabelNode?
-    var highScoreLabel: SKLabelNode?
+    var scoreLabel: SKLabelNode = SKLabelNode()
+    
+    func createScoreLabel(score: Int) -> SKLabelNode {
+        let label = SKLabelNode()
+        label.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + self.frame.height / 2.6)
+        label.text = "\(score)"
+        label.zPosition = 5
+        label.fontSize = 50
+        label.fontName = "HelveticaNeue-Bold"
+        
+        let scoreBg = SKShapeNode()
+        scoreBg.position = CGPoint(x: 0, y: 0)
+        scoreBg.path = CGPath(roundedRect: CGRect(x: CGFloat(-50), y: CGFloat(-30), width: CGFloat(100), height: CGFloat(100)), cornerWidth: 50, cornerHeight: 50, transform: nil)
+        let scoreBgColor = UIColor(red: CGFloat(0.0 / 255.0), green: CGFloat(0.0 / 255.0), blue: CGFloat(0.0 / 255.0), alpha: CGFloat(0.2))
+        scoreBg.strokeColor = UIColor.clear
+        scoreBg.fillColor = scoreBgColor
+        scoreBg.zPosition = -1
+        
+        label.addChild(scoreBg)
+        
+        return label
+    }
+    
+    var highScoreLabel: SKLabelNode = SKLabelNode()
+    
+    func createHighScoreLabel(score: Int?) -> SKLabelNode {
+        let label = SKLabelNode()
+        label.position = CGPoint(x: self.frame.width - 80, y: self.frame.height - 22)
+        
+        //        if let highestScore = UserDefaults.standard.object(forKey: "HighScore") {
+        if let highScore = score {
+            label.text = "High Score: \(highScore)"
+        } else {
+            label.text = "High Score: 0"
+        }
+        
+        label.zPosition = 5
+        label.fontSize = 15
+        label.fontName = "Helvetica-Bold"
+        
+        return label
+    }
     
     var tapToPlayLabel: SKLabelNode = SKLabelNode()
     
@@ -174,6 +214,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let animateTurd = SKAction.animate(with: self.turdSprites, timePerFrame: 0.1)
         self.repeatActionTurd = SKAction.repeatForever(animateTurd)
         
+        // Add score labels
+        self.scoreLabel = self.createScoreLabel(score: self.score)
+        self.addChild(self.scoreLabel)
+        
+        self.highScoreLabel = self.createHighScoreLabel(score: UserDefaults.standard.integer(forKey: "HighScore"))
+        self.addChild(self.highScoreLabel)
+        
         // Add logo image
         self.logoImage = self.createLogoImage()
         self.addChild(self.logoImage)
@@ -319,15 +366,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         } else if firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.bacteriaCategory {
-            // TODO: play sound here
             self.score += 1
-            // TODO: update score label here
+            self.scoreLabel.text = "\(self.score)"
             secondBody.node?.removeFromParent()
             
         } else if firstBody.categoryBitMask == CollisionBitMask.bacteriaCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory {
-            // TODO: play sound here
             self.score += 1
-            // TODO: update score label here
+            self.scoreLabel.text = "\(self.score)"
             firstBody.node?.removeFromParent()
         }
     }
