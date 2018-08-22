@@ -44,7 +44,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let label = SKLabelNode()
         label.position = CGPoint(x: self.frame.width - 80, y: self.frame.height - 22)
         
-        //        if let highestScore = UserDefaults.standard.object(forKey: "HighScore") {
         if let highScore = score {
             label.text = "High Score: \(highScore)"
         } else {
@@ -322,8 +321,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         UserDefaults.standard.set(0, forKey: "HighScore")
                     }
                     
-                    // TODO: Restart button is staying on screen -- review where this loop should be happening; also review `restartScene` method
-                    //                    self.restartButton.removeFromParent() // TODO: this didnt work
                     self.restartScene()
                 }
                 
@@ -353,7 +350,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.removeAllActions()
             })
             
-            // TODO: this method is being called after `restartScene` and `createScene` methods have been called -- maybe because `turd` property is still on-screen, and detects immediately that it's lying on the ground or crashed into a pipe? maybe children aren't being removed from parent correctly, because `turd` is a lazy var? or should we be explicit and remove it from the scene when we restart?
             if self.isDead == false {
                 self.isDead = true
                 // Create Restart button
@@ -379,12 +375,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 }
 
 extension GameScene {
-    // TODO: do we need both of these methods?
-    func random() -> CGFloat{
+    func random() -> CGFloat {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
     
-    func random(min : CGFloat, max : CGFloat) -> CGFloat{
-        return random() * (max - min) + min
+    func random(min : CGFloat, max : CGFloat) -> CGFloat {
+        return self.random() * (max - min) + min
     }
 }
