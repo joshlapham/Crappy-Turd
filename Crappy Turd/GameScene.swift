@@ -144,7 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsBody?.affectedByGravity = false
         
         self.physicsWorld.contactDelegate = self
-        self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+//        self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
         
         for i in 0..<2 {
             let background = SKSpriteNode(imageNamed: "background")
@@ -210,12 +210,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // TODO: create 'Pause' button here
             
-            // Remove logo
+            // Remove logo image
             self.logoImage.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
                 self.logoImage.removeFromParent()
             })
             
-            // Remove 'tap to play' label
+            // Remove 'Tap to Play' label
             self.tapToPlayLabel.removeFromParent()
             
             self.turd?.run(self.repeatActionTurd)
@@ -266,6 +266,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         UserDefaults.standard.set(0, forKey: "HighScore")
                     }
                     
+                    // TODO: Restart button is staying on screen -- review where this loop should be happening; also review `restartScene` method
+                    //                    self.restartButton.removeFromParent() // TODO: this didnt work
                     self.restartScene()
                 }
                 
