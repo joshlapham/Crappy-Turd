@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode?
     var highScoreLabel: SKLabelNode?
     
-    lazy var tapToPlayLabel: SKLabelNode? = {
+    lazy var tapToPlayLabel: SKLabelNode = {
         let label = SKLabelNode()
         label.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
         label.text = "Tap to Play"
@@ -43,7 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var pauseButton: SKSpriteNode?
     
-    lazy var logoImage: SKSpriteNode? = {
+    lazy var logoImage: SKSpriteNode = {
         let logoImage = SKSpriteNode(imageNamed: "title-crappyturd")
         logoImage.size = CGSize(width: 576 / 2, height: 347 / 2) // TODO: need to set size dynamically somehow
         logoImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 100)
@@ -114,7 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Create the turd atlas for animation
     let turdAtlas = SKTextureAtlas(named: "player")
     var turdSprites: [SKTexture] = []
-    var repeatActionTurd: SKAction?
+    var repeatActionTurd: SKAction = SKAction()
     
     lazy var turd: SKSpriteNode? = {
         let turd = SKSpriteNode(texture: self.turdAtlas.textureNamed("poo-down"))
@@ -167,13 +167,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let animateTurd = SKAction.animate(with: self.turdSprites, timePerFrame: 0.1)
         self.repeatActionTurd = SKAction.repeatForever(animateTurd)
         
-        // Add logo
-        guard let logoImage = self.logoImage else { return }
-        self.addChild(logoImage)
+        // Add logo image
+        self.addChild(self.logoImage)
         
-        // Add 'tap to play'
-        guard let tapToPlay = self.tapToPlayLabel else { return }
-        self.addChild(tapToPlay)
+        // Add 'Tap to Play' label
+        self.addChild(self.tapToPlayLabel)
     }
     
     func restartScene() {
@@ -213,15 +211,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // TODO: create 'Pause' button here
             
             // Remove logo
-            self.logoImage?.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
-                self.logoImage?.removeFromParent()
+            self.logoImage.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
+                self.logoImage.removeFromParent()
             })
             
             // Remove 'tap to play' label
-            self.tapToPlayLabel?.removeFromParent()
+            self.tapToPlayLabel.removeFromParent()
             
-            guard let action = self.repeatActionTurd else { return }
-            self.turd?.run(action)
+            self.turd?.run(self.repeatActionTurd)
             
             // Add pipes/pillars
             let spawn = SKAction.run({
@@ -279,7 +276,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         self.isPaused = true
                         // TODO: update Pause button texture image here
                     } else {
-                        self.isPaused == false
+                        self.isPaused = false
                         // TODO: update Pause button texture image here
                     }
                 }
@@ -300,10 +297,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if self.isDead == false {
                 self.isDead = true
-                // TODO: create Restart button here
+                // Create Restart button
                 self.addChild(self.restartButton)
                 
                 // TODO: remove Pause button here
+                
                 self.turd?.removeAllActions()
             }
             
@@ -323,6 +321,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 }
 
 extension GameScene {
+    // TODO: do we need both of these methods?
     func random() -> CGFloat{
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
