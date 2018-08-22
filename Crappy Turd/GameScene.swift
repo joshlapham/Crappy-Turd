@@ -32,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     lazy var restartButton: SKSpriteNode = {
         let button = SKSpriteNode(imageNamed: "title-gameover")
-        button.size = CGSize(width: 764 / 2, height: 193 / 2)
+        button.size = CGSize(width: 764 / 3, height: 193 / 3)
         button.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         button.zPosition = 6
         button.setScale(0)
@@ -45,7 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     lazy var logoImage: SKSpriteNode? = {
         let logoImage = SKSpriteNode(imageNamed: "title-crappyturd")
-        logoImage.size = CGSize(width: 376, height: 147) // TODO: need to set size dynamically somehow
+        logoImage.size = CGSize(width: 576 / 2, height: 347 / 2) // TODO: need to set size dynamically somehow
         logoImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 100)
         logoImage.setScale(0.5)
         logoImage.run(SKAction.scale(to: 1.0, duration: 0.3))
