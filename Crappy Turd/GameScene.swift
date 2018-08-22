@@ -120,7 +120,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var turdSprites: [SKTexture] = []
     var repeatActionTurd: SKAction = SKAction()
     
-    lazy var turd: SKSpriteNode? = {
+    var turd: SKSpriteNode = SKSpriteNode()
+    
+    func createTurd() -> SKSpriteNode {
         let turd = SKSpriteNode(texture: self.turdAtlas.textureNamed("poo-down"))
         turd.size = CGSize(width: 50, height: 50)
         turd.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
@@ -137,7 +139,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         turd.physicsBody?.isDynamic = true
         
         return turd
-    }()
+    }
     
     func createScene() {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -164,8 +166,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.turdSprites.append(self.turdAtlas.textureNamed("poo-mid"))
         self.turdSprites.append(self.turdAtlas.textureNamed("poo-up"))
         
-        guard let turd = self.turd else { return }
-        self.addChild(turd)
+//        guard let turd = self.turd else { return }
+        self.turd = self.createTurd()
+        self.addChild(self.turd)
         
         // Prepare to animate the turd and repeat the animation forever
         let animateTurd = SKAction.animate(with: self.turdSprites, timePerFrame: 0.1)
@@ -213,7 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.isGameStarted == false {
             self.isGameStarted = true
-            self.turd?.physicsBody?.affectedByGravity = true
+            self.turd.physicsBody?.affectedByGravity = true
             
             // TODO: create 'Pause' button here
             
@@ -225,7 +228,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // Remove 'Tap to Play' label
             self.tapToPlayLabel.removeFromParent()
             
-            self.turd?.run(self.repeatActionTurd)
+            self.turd.run(self.repeatActionTurd)
             
             // Add pipes/pillars
             let spawn = SKAction.run({
@@ -245,13 +248,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.moveAndRemove = SKAction.sequence([movePillars, removePillars])
             self.wallPair.run(self.moveAndRemove)
             
-            self.turd?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+            self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             
         } else {
             if self.isDead == false {
-                self.turd?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+                self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
         
@@ -313,7 +316,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 // TODO: remove Pause button here
                 
-                self.turd?.removeAllActions()
+                self.turd.removeAllActions()
             }
             
         } else if firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.bacteriaCategory {
