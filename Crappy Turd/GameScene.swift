@@ -45,7 +45,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var pauseButton: SKSpriteNode?
     
-    lazy var logoImage: SKSpriteNode = {
+    var logoImage: SKSpriteNode = SKSpriteNode()
+    
+    func createLogoImage() -> SKSpriteNode {
         let logoImage = SKSpriteNode(imageNamed: "title-crappyturd")
         logoImage.size = CGSize(width: 576 / 2, height: 347 / 2) // TODO: need to set size dynamically somehow
         logoImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 100)
@@ -53,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         logoImage.run(SKAction.scale(to: 1.0, duration: 0.3))
         
         return logoImage
-    }()
+    }
     
     var wallPair: SKNode = SKNode()
     
@@ -170,6 +172,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.repeatActionTurd = SKAction.repeatForever(animateTurd)
         
         // Add logo image
+        self.logoImage = self.createLogoImage()
         self.addChild(self.logoImage)
         
         // Add 'Tap to Play' label
@@ -179,7 +182,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func restartScene() {
         self.removeAllChildren()
         self.removeAllActions()
-        self.turd?.removeFromParent()
+//        self.turd?.removeFromParent()
         //        self.restartButton.removeFromParent() // TODO: this isnt working either
         self.isDead = false
         self.isGameStarted = false
