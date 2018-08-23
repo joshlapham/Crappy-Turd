@@ -42,6 +42,7 @@
 		68C6D73C212F78FC00606A3A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D73A212F78FC00606A3A /* AppConstants.swift */; };
 		68C6D73D212F78FC00606A3A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D73A212F78FC00606A3A /* AppConstants.swift */; };
 		68C6D73E212F78FC00606A3A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D73A212F78FC00606A3A /* AppConstants.swift */; };
+		68C6D740212F7EB300606A3A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D73F212F7EB300606A3A /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		68C6D732212F5FBA00606A3A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		68C6D734212F764000606A3A /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 		68C6D73A212F78FC00606A3A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		68C6D73F212F7EB300606A3A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				68C6D73A212F78FC00606A3A /* AppConstants.swift */,
 				68C6D739212F764C00606A3A /* Extensions */,
 				68C6D6B0212F5B1100606A3A /* Assets.xcassets */,
+				68C6D73F212F7EB300606A3A /* Settings.bundle */,
 			);
 			path = "Crappy Turd Shared";
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68C6D740212F7EB300606A3A /* Settings.bundle in Resources */,
 				68C6D6BE212F5B1200606A3A /* Main.storyboard in Resources */,
 				68C6D6C1212F5B1200606A3A /* LaunchScreen.storyboard in Resources */,
 				68C6D703212F5B1200606A3A /* Assets.xcassets in Resources */,
