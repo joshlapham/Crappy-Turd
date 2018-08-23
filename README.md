@@ -24,4 +24,5 @@ Credit to [this blog post by Akhilendra Singh](http://sweettutos.com/2017/03/09/
 ### Steps
 
 1. Open project in Xcode
-2. Run project
+2. Select target (`iOS`, `macOS`, `tvOS`, `watchOS`)
+3. Build and run
