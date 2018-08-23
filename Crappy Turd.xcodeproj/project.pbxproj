@@ -172,7 +172,6 @@
 				68C6D73A212F78FC00606A3A /* AppConstants.swift */,
 				68C6D739212F764C00606A3A /* Extensions */,
 				68C6D6B0212F5B1100606A3A /* Assets.xcassets */,
-				68C6D73F212F7EB300606A3A /* Settings.bundle */,
 			);
 			path = "Crappy Turd Shared";
 			sourceTree = "<group>";
@@ -197,6 +196,7 @@
 				68C6D6BC212F5B1200606A3A /* Main.storyboard */,
 				68C6D6BF212F5B1200606A3A /* LaunchScreen.storyboard */,
 				68C6D6C2212F5B1200606A3A /* Info.plist */,
+				68C6D73F212F7EB300606A3A /* Settings.bundle */,
 			);
 			path = "Crappy Turd iOS";
 			sourceTree = "<group>";
