@@ -34,6 +34,10 @@
 		68C6D72F212F5F5600606A3A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D72E212F5F5600606A3A /* GameViewController.swift */; };
 		68C6D731212F5F8900606A3A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D730212F5F8800606A3A /* GameViewController.swift */; };
 		68C6D733212F5FBA00606A3A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D732212F5FBA00606A3A /* GameViewController.swift */; };
+		68C6D735212F764000606A3A /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D734212F764000606A3A /* UserDefaults+Helpers.swift */; };
+		68C6D736212F764000606A3A /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D734212F764000606A3A /* UserDefaults+Helpers.swift */; };
+		68C6D737212F764000606A3A /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D734212F764000606A3A /* UserDefaults+Helpers.swift */; };
+		68C6D738212F764000606A3A /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D734212F764000606A3A /* UserDefaults+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +109,7 @@
 		68C6D72E212F5F5600606A3A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		68C6D730212F5F8800606A3A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		68C6D732212F5FBA00606A3A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		68C6D734212F764000606A3A /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +162,7 @@
 			children = (
 				68C6D725212F5EB900606A3A /* GameScene.swift */,
 				68C6D724212F5EB900606A3A /* GameElements.swift */,
+				68C6D739212F764C00606A3A /* Extensions */,
 				68C6D6B0212F5B1100606A3A /* Assets.xcassets */,
 			);
 			path = "Crappy Turd Shared";
@@ -225,6 +231,14 @@
 				68C6D6F7212F5B1200606A3A /* Info.plist */,
 			);
 			path = "Crappy Turd macOS";
+			sourceTree = "<group>";
+		};
+		68C6D739212F764C00606A3A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				68C6D734212F764000606A3A /* UserDefaults+Helpers.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68C6D72F212F5F5600606A3A /* GameViewController.swift in Sources */,
+				68C6D735212F764000606A3A /* UserDefaults+Helpers.swift in Sources */,
 				68C6D72A212F5EBA00606A3A /* GameScene.swift in Sources */,
 				68C6D726212F5EBA00606A3A /* GameElements.swift in Sources */,
 				68C6D6B9212F5B1200606A3A /* AppDelegate.swift in Sources */,
@@ -430,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68C6D72B212F5EBA00606A3A /* GameScene.swift in Sources */,
+				68C6D736212F764000606A3A /* UserDefaults+Helpers.swift in Sources */,
 				68C6D727212F5EBA00606A3A /* GameElements.swift in Sources */,
 				68C6D6DA212F5B1200606A3A /* ExtensionDelegate.swift in Sources */,
 				68C6D6D8212F5B1200606A3A /* InterfaceController.swift in Sources */,
@@ -441,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68C6D733212F5FBA00606A3A /* GameViewController.swift in Sources */,
+				68C6D737212F764000606A3A /* UserDefaults+Helpers.swift in Sources */,
 				68C6D72C212F5EBA00606A3A /* GameScene.swift in Sources */,
 				68C6D728212F5EBA00606A3A /* GameElements.swift in Sources */,
 				68C6D6E3212F5B1200606A3A /* AppDelegate.swift in Sources */,
@@ -452,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68C6D731212F5F8900606A3A /* GameViewController.swift in Sources */,
+				68C6D738212F764000606A3A /* UserDefaults+Helpers.swift in Sources */,
 				68C6D72D212F5EBA00606A3A /* GameScene.swift in Sources */,
 				68C6D729212F5EBA00606A3A /* GameElements.swift in Sources */,
 				68C6D6F1212F5B1200606A3A /* AppDelegate.swift in Sources */,

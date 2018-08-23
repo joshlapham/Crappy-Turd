@@ -234,7 +234,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.scoreLabel = self.createScoreLabel(score: self.score)
         self.addChild(self.scoreLabel)
         
-        self.highScoreLabel = self.createHighScoreLabel(score: UserDefaults.standard.integer(forKey: "HighScore"))
+        self.highScoreLabel = self.createHighScoreLabel(score: UserDefaults.standard.getHighScore())
         self.addChild(self.highScoreLabel)
         
         // Add logo image
@@ -377,16 +377,12 @@ extension GameScene {
         // Restart button toggle
         if self.isDead == true {
             if self.restartButton.contains(location) == true {
-                // TODO: refactor this to extension on `UserDefaults`
-                // TODO: refactor to use App Constants for keys
-                if UserDefaults.standard.object(forKey: "HighScore") != nil {
-                    let highScore = UserDefaults.standard.integer(forKey: "HighScore")
-                    
+                if let highScore = UserDefaults.standard.getHighScore() {
                     if highScore < self.score {
-                        UserDefaults.standard.set(self.score, forKey: "HighScore")
+                        UserDefaults.standard.setHighScore(score: self.score)
                     }
                 } else {
-                    UserDefaults.standard.set(0, forKey: "HighScore")
+                    UserDefaults.standard.setHighScore(score: 0)
                 }
                 
                 self.restartScene()
