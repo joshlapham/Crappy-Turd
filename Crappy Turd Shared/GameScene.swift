@@ -8,11 +8,6 @@
 
 import SpriteKit
 
-// TODO: this probably isn't the right way of doing things with watchOS
-//#if !os(watchOS)
-//import GameplayKit
-//#endif
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isGameStarted: Bool = false
     var isDead: Bool = false
