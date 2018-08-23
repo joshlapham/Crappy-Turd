@@ -7,7 +7,7 @@
 //
 
 import SpriteKit
-import GameplayKit
+//import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isGameStarted: Bool = false

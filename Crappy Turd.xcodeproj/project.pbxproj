@@ -7,29 +7,134 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68EB6C44212BE50400674839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB6C43212BE50400674839 /* AppDelegate.swift */; };
-		68EB6C4A212BE50400674839 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB6C49212BE50400674839 /* GameScene.swift */; };
-		68EB6C4C212BE50400674839 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB6C4B212BE50400674839 /* GameViewController.swift */; };
-		68EB6C4F212BE50400674839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EB6C4D212BE50400674839 /* Main.storyboard */; };
-		68EB6C51212BE50500674839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68EB6C50212BE50500674839 /* Assets.xcassets */; };
-		68EB6C54212BE50500674839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EB6C52212BE50500674839 /* LaunchScreen.storyboard */; };
-		68EB6C5C212BE79A00674839 /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB6C5B212BE79A00674839 /* GameElements.swift */; };
+		68C6D6B9212F5B1200606A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6B8212F5B1200606A3A /* AppDelegate.swift */; };
+		68C6D6BE212F5B1200606A3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6BC212F5B1200606A3A /* Main.storyboard */; };
+		68C6D6C1212F5B1200606A3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6BF212F5B1200606A3A /* LaunchScreen.storyboard */; };
+		68C6D6C6212F5B1200606A3A /* Crappy Turd.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 68C6D6C5212F5B1200606A3A /* Crappy Turd.app */; };
+		68C6D6CC212F5B1200606A3A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6CA212F5B1200606A3A /* Interface.storyboard */; };
+		68C6D6D3212F5B1200606A3A /* Crappy Turd Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 68C6D6D2212F5B1200606A3A /* Crappy Turd Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		68C6D6D8212F5B1200606A3A /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6D7212F5B1200606A3A /* InterfaceController.swift */; };
+		68C6D6DA212F5B1200606A3A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6D9212F5B1200606A3A /* ExtensionDelegate.swift */; };
+		68C6D6E3212F5B1200606A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6E2212F5B1200606A3A /* AppDelegate.swift */; };
+		68C6D6E8212F5B1200606A3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6E6212F5B1200606A3A /* Main.storyboard */; };
+		68C6D6F1212F5B1200606A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6F0212F5B1200606A3A /* AppDelegate.swift */; };
+		68C6D6F6212F5B1200606A3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6F4212F5B1200606A3A /* Main.storyboard */; };
+		68C6D6FF212F5B1200606A3A /* GameSceneOriginal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6AF212F5B0F00606A3A /* GameSceneOriginal.swift */; };
+		68C6D700212F5B1200606A3A /* GameSceneOriginal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6AF212F5B0F00606A3A /* GameSceneOriginal.swift */; };
+		68C6D701212F5B1200606A3A /* GameSceneOriginal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6AF212F5B0F00606A3A /* GameSceneOriginal.swift */; };
+		68C6D702212F5B1200606A3A /* GameSceneOriginal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D6AF212F5B0F00606A3A /* GameSceneOriginal.swift */; };
+		68C6D703212F5B1200606A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6B0212F5B1100606A3A /* Assets.xcassets */; };
+		68C6D704212F5B1200606A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6B0212F5B1100606A3A /* Assets.xcassets */; };
+		68C6D705212F5B1200606A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6B0212F5B1100606A3A /* Assets.xcassets */; };
+		68C6D706212F5B1200606A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C6D6B0212F5B1100606A3A /* Assets.xcassets */; };
+		68C6D726212F5EBA00606A3A /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D724212F5EB900606A3A /* GameElements.swift */; };
+		68C6D727212F5EBA00606A3A /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D724212F5EB900606A3A /* GameElements.swift */; };
+		68C6D728212F5EBA00606A3A /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D724212F5EB900606A3A /* GameElements.swift */; };
+		68C6D729212F5EBA00606A3A /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D724212F5EB900606A3A /* GameElements.swift */; };
+		68C6D72A212F5EBA00606A3A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D725212F5EB900606A3A /* GameScene.swift */; };
+		68C6D72B212F5EBA00606A3A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D725212F5EB900606A3A /* GameScene.swift */; };
+		68C6D72C212F5EBA00606A3A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D725212F5EB900606A3A /* GameScene.swift */; };
+		68C6D72D212F5EBA00606A3A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D725212F5EB900606A3A /* GameScene.swift */; };
+		68C6D72F212F5F5600606A3A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D72E212F5F5600606A3A /* GameViewController.swift */; };
+		68C6D731212F5F8900606A3A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D730212F5F8800606A3A /* GameViewController.swift */; };
+		68C6D733212F5FBA00606A3A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6D732212F5FBA00606A3A /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		68C6D6C7212F5B1200606A3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68C6D6A8212F5B0F00606A3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68C6D6C4212F5B1200606A3A;
+			remoteInfo = "Crappy Turd watchOS App";
+		};
+		68C6D6D4212F5B1200606A3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68C6D6A8212F5B0F00606A3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68C6D6D1212F5B1200606A3A;
+			remoteInfo = "Crappy Turd watchOS App Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		68C6D70C212F5B1200606A3A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				68C6D6D3212F5B1200606A3A /* Crappy Turd Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D710212F5B1200606A3A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				68C6D6C6212F5B1200606A3A /* Crappy Turd.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		68EB6C40212BE50400674839 /* Crappy Turd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crappy Turd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		68EB6C43212BE50400674839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68EB6C49212BE50400674839 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		68EB6C4B212BE50400674839 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		68EB6C4E212BE50400674839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		68EB6C50212BE50500674839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		68EB6C53212BE50500674839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		68EB6C55212BE50500674839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68EB6C5B212BE79A00674839 /* GameElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameElements.swift; sourceTree = "<group>"; };
+		68C6D6AF212F5B0F00606A3A /* GameSceneOriginal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneOriginal.swift; sourceTree = "<group>"; };
+		68C6D6B0212F5B1100606A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68C6D6B5212F5B1200606A3A /* Crappy Turd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crappy Turd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C6D6B8212F5B1200606A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		68C6D6BD212F5B1200606A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		68C6D6C0212F5B1200606A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		68C6D6C2212F5B1200606A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68C6D6C5212F5B1200606A3A /* Crappy Turd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crappy Turd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C6D6CB212F5B1200606A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		68C6D6CD212F5B1200606A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68C6D6D2212F5B1200606A3A /* Crappy Turd Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Crappy Turd Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C6D6D7212F5B1200606A3A /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		68C6D6D9212F5B1200606A3A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		68C6D6DB212F5B1200606A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68C6D6E0212F5B1200606A3A /* Crappy Turd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crappy Turd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C6D6E2212F5B1200606A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		68C6D6E7212F5B1200606A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		68C6D6E9212F5B1200606A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68C6D6EE212F5B1200606A3A /* Crappy Turd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crappy Turd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C6D6F0212F5B1200606A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		68C6D6F5212F5B1200606A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		68C6D6F7212F5B1200606A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68C6D724212F5EB900606A3A /* GameElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameElements.swift; sourceTree = "<group>"; };
+		68C6D725212F5EB900606A3A /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		68C6D72E212F5F5600606A3A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		68C6D730212F5F8800606A3A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		68C6D732212F5FBA00606A3A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		68EB6C3D212BE50400674839 /* Frameworks */ = {
+		68C6D6B2212F5B1200606A3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6CF212F5B1200606A3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6DD212F5B1200606A3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6EB212F5B1200606A3A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,73 +144,213 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		68EB6C37212BE50400674839 = {
+		68C6D6A7212F5B0F00606A3A = {
 			isa = PBXGroup;
 			children = (
-				68EB6C42212BE50400674839 /* Crappy Turd */,
-				68EB6C41212BE50400674839 /* Products */,
+				68C6D6AC212F5B0F00606A3A /* Crappy Turd Shared */,
+				68C6D6B7212F5B1200606A3A /* Crappy Turd iOS */,
+				68C6D6C9212F5B1200606A3A /* Crappy Turd watchOS App */,
+				68C6D6D6212F5B1200606A3A /* Crappy Turd watchOS App Extension */,
+				68C6D6E1212F5B1200606A3A /* Crappy Turd tvOS */,
+				68C6D6EF212F5B1200606A3A /* Crappy Turd macOS */,
+				68C6D6B6212F5B1200606A3A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		68EB6C41212BE50400674839 /* Products */ = {
+		68C6D6AC212F5B0F00606A3A /* Crappy Turd Shared */ = {
 			isa = PBXGroup;
 			children = (
-				68EB6C40212BE50400674839 /* Crappy Turd.app */,
+				68C6D6AF212F5B0F00606A3A /* GameSceneOriginal.swift */,
+				68C6D724212F5EB900606A3A /* GameElements.swift */,
+				68C6D725212F5EB900606A3A /* GameScene.swift */,
+				68C6D6B0212F5B1100606A3A /* Assets.xcassets */,
+			);
+			path = "Crappy Turd Shared";
+			sourceTree = "<group>";
+		};
+		68C6D6B6212F5B1200606A3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68C6D6B5212F5B1200606A3A /* Crappy Turd.app */,
+				68C6D6C5212F5B1200606A3A /* Crappy Turd.app */,
+				68C6D6D2212F5B1200606A3A /* Crappy Turd Extension.appex */,
+				68C6D6E0212F5B1200606A3A /* Crappy Turd.app */,
+				68C6D6EE212F5B1200606A3A /* Crappy Turd.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		68EB6C42212BE50400674839 /* Crappy Turd */ = {
+		68C6D6B7212F5B1200606A3A /* Crappy Turd iOS */ = {
 			isa = PBXGroup;
 			children = (
-				68EB6C43212BE50400674839 /* AppDelegate.swift */,
-				68EB6C49212BE50400674839 /* GameScene.swift */,
-				68EB6C4B212BE50400674839 /* GameViewController.swift */,
-				68EB6C5B212BE79A00674839 /* GameElements.swift */,
-				68EB6C4D212BE50400674839 /* Main.storyboard */,
-				68EB6C50212BE50500674839 /* Assets.xcassets */,
-				68EB6C52212BE50500674839 /* LaunchScreen.storyboard */,
-				68EB6C55212BE50500674839 /* Info.plist */,
+				68C6D6B8212F5B1200606A3A /* AppDelegate.swift */,
+				68C6D72E212F5F5600606A3A /* GameViewController.swift */,
+				68C6D6BC212F5B1200606A3A /* Main.storyboard */,
+				68C6D6BF212F5B1200606A3A /* LaunchScreen.storyboard */,
+				68C6D6C2212F5B1200606A3A /* Info.plist */,
 			);
-			path = "Crappy Turd";
+			path = "Crappy Turd iOS";
+			sourceTree = "<group>";
+		};
+		68C6D6C9212F5B1200606A3A /* Crappy Turd watchOS App */ = {
+			isa = PBXGroup;
+			children = (
+				68C6D6CA212F5B1200606A3A /* Interface.storyboard */,
+				68C6D6CD212F5B1200606A3A /* Info.plist */,
+			);
+			path = "Crappy Turd watchOS App";
+			sourceTree = "<group>";
+		};
+		68C6D6D6212F5B1200606A3A /* Crappy Turd watchOS App Extension */ = {
+			isa = PBXGroup;
+			children = (
+				68C6D6D7212F5B1200606A3A /* InterfaceController.swift */,
+				68C6D6D9212F5B1200606A3A /* ExtensionDelegate.swift */,
+				68C6D6DB212F5B1200606A3A /* Info.plist */,
+			);
+			path = "Crappy Turd watchOS App Extension";
+			sourceTree = "<group>";
+		};
+		68C6D6E1212F5B1200606A3A /* Crappy Turd tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				68C6D6E2212F5B1200606A3A /* AppDelegate.swift */,
+				68C6D732212F5FBA00606A3A /* GameViewController.swift */,
+				68C6D6E6212F5B1200606A3A /* Main.storyboard */,
+				68C6D6E9212F5B1200606A3A /* Info.plist */,
+			);
+			path = "Crappy Turd tvOS";
+			sourceTree = "<group>";
+		};
+		68C6D6EF212F5B1200606A3A /* Crappy Turd macOS */ = {
+			isa = PBXGroup;
+			children = (
+				68C6D6F0212F5B1200606A3A /* AppDelegate.swift */,
+				68C6D730212F5F8800606A3A /* GameViewController.swift */,
+				68C6D6F4212F5B1200606A3A /* Main.storyboard */,
+				68C6D6F7212F5B1200606A3A /* Info.plist */,
+			);
+			path = "Crappy Turd macOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		68EB6C3F212BE50400674839 /* Crappy Turd */ = {
+		68C6D6B4212F5B1200606A3A /* Crappy Turd iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 68EB6C58212BE50500674839 /* Build configuration list for PBXNativeTarget "Crappy Turd" */;
+			buildConfigurationList = 68C6D711212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd iOS" */;
 			buildPhases = (
-				68EB6C3C212BE50400674839 /* Sources */,
-				68EB6C3D212BE50400674839 /* Frameworks */,
-				68EB6C3E212BE50400674839 /* Resources */,
+				68C6D6B1212F5B1200606A3A /* Sources */,
+				68C6D6B2212F5B1200606A3A /* Frameworks */,
+				68C6D6B3212F5B1200606A3A /* Resources */,
+				68C6D710212F5B1200606A3A /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68C6D6C8212F5B1200606A3A /* PBXTargetDependency */,
+			);
+			name = "Crappy Turd iOS";
+			productName = "Crappy Turd iOS";
+			productReference = 68C6D6B5212F5B1200606A3A /* Crappy Turd.app */;
+			productType = "com.apple.product-type.application";
+		};
+		68C6D6C4212F5B1200606A3A /* Crappy Turd watchOS App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68C6D70D212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd watchOS App" */;
+			buildPhases = (
+				68C6D6C3212F5B1200606A3A /* Resources */,
+				68C6D70C212F5B1200606A3A /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68C6D6D5212F5B1200606A3A /* PBXTargetDependency */,
+			);
+			name = "Crappy Turd watchOS App";
+			productName = "Crappy Turd watchOS App";
+			productReference = 68C6D6C5212F5B1200606A3A /* Crappy Turd.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		68C6D6D1212F5B1200606A3A /* Crappy Turd watchOS App Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68C6D709212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd watchOS App Extension" */;
+			buildPhases = (
+				68C6D6CE212F5B1200606A3A /* Sources */,
+				68C6D6CF212F5B1200606A3A /* Frameworks */,
+				68C6D6D0212F5B1200606A3A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Crappy Turd";
-			productName = "Crappy Turd";
-			productReference = 68EB6C40212BE50400674839 /* Crappy Turd.app */;
+			name = "Crappy Turd watchOS App Extension";
+			productName = "Crappy Turd watchOS App Extension";
+			productReference = 68C6D6D2212F5B1200606A3A /* Crappy Turd Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		68C6D6DF212F5B1200606A3A /* Crappy Turd tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68C6D714212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd tvOS" */;
+			buildPhases = (
+				68C6D6DC212F5B1200606A3A /* Sources */,
+				68C6D6DD212F5B1200606A3A /* Frameworks */,
+				68C6D6DE212F5B1200606A3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Crappy Turd tvOS";
+			productName = "Crappy Turd tvOS";
+			productReference = 68C6D6E0212F5B1200606A3A /* Crappy Turd.app */;
+			productType = "com.apple.product-type.application";
+		};
+		68C6D6ED212F5B1200606A3A /* Crappy Turd macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68C6D717212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd macOS" */;
+			buildPhases = (
+				68C6D6EA212F5B1200606A3A /* Sources */,
+				68C6D6EB212F5B1200606A3A /* Frameworks */,
+				68C6D6EC212F5B1200606A3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Crappy Turd macOS";
+			productName = "Crappy Turd macOS";
+			productReference = 68C6D6EE212F5B1200606A3A /* Crappy Turd.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		68EB6C38212BE50400674839 /* Project object */ = {
+		68C6D6A8212F5B0F00606A3A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Josh Lapham";
 				TargetAttributes = {
-					68EB6C3F212BE50400674839 = {
+					68C6D6B4212F5B1200606A3A = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					68C6D6C4212F5B1200606A3A = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					68C6D6D1212F5B1200606A3A = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					68C6D6DF212F5B1200606A3A = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					68C6D6ED212F5B1200606A3A = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 68EB6C3B212BE50400674839 /* Build configuration list for PBXProject "Crappy Turd" */;
+			buildConfigurationList = 68C6D6AB212F5B0F00606A3A /* Build configuration list for PBXProject "Crappy Turd" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,64 +358,176 @@
 				en,
 				Base,
 			);
-			mainGroup = 68EB6C37212BE50400674839;
-			productRefGroup = 68EB6C41212BE50400674839 /* Products */;
+			mainGroup = 68C6D6A7212F5B0F00606A3A;
+			productRefGroup = 68C6D6B6212F5B1200606A3A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				68EB6C3F212BE50400674839 /* Crappy Turd */,
+				68C6D6B4212F5B1200606A3A /* Crappy Turd iOS */,
+				68C6D6C4212F5B1200606A3A /* Crappy Turd watchOS App */,
+				68C6D6D1212F5B1200606A3A /* Crappy Turd watchOS App Extension */,
+				68C6D6DF212F5B1200606A3A /* Crappy Turd tvOS */,
+				68C6D6ED212F5B1200606A3A /* Crappy Turd macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		68EB6C3E212BE50400674839 /* Resources */ = {
+		68C6D6B3212F5B1200606A3A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68EB6C4F212BE50400674839 /* Main.storyboard in Resources */,
-				68EB6C51212BE50500674839 /* Assets.xcassets in Resources */,
-				68EB6C54212BE50500674839 /* LaunchScreen.storyboard in Resources */,
+				68C6D6BE212F5B1200606A3A /* Main.storyboard in Resources */,
+				68C6D6C1212F5B1200606A3A /* LaunchScreen.storyboard in Resources */,
+				68C6D703212F5B1200606A3A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6C3212F5B1200606A3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C6D704212F5B1200606A3A /* Assets.xcassets in Resources */,
+				68C6D6CC212F5B1200606A3A /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6D0212F5B1200606A3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6DE212F5B1200606A3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C6D6E8212F5B1200606A3A /* Main.storyboard in Resources */,
+				68C6D705212F5B1200606A3A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6EC212F5B1200606A3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C6D6F6212F5B1200606A3A /* Main.storyboard in Resources */,
+				68C6D706212F5B1200606A3A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		68EB6C3C212BE50400674839 /* Sources */ = {
+		68C6D6B1212F5B1200606A3A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68EB6C5C212BE79A00674839 /* GameElements.swift in Sources */,
-				68EB6C4A212BE50400674839 /* GameScene.swift in Sources */,
-				68EB6C4C212BE50400674839 /* GameViewController.swift in Sources */,
-				68EB6C44212BE50400674839 /* AppDelegate.swift in Sources */,
+				68C6D72F212F5F5600606A3A /* GameViewController.swift in Sources */,
+				68C6D72A212F5EBA00606A3A /* GameScene.swift in Sources */,
+				68C6D726212F5EBA00606A3A /* GameElements.swift in Sources */,
+				68C6D6FF212F5B1200606A3A /* GameSceneOriginal.swift in Sources */,
+				68C6D6B9212F5B1200606A3A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6CE212F5B1200606A3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C6D72B212F5EBA00606A3A /* GameScene.swift in Sources */,
+				68C6D727212F5EBA00606A3A /* GameElements.swift in Sources */,
+				68C6D700212F5B1200606A3A /* GameSceneOriginal.swift in Sources */,
+				68C6D6DA212F5B1200606A3A /* ExtensionDelegate.swift in Sources */,
+				68C6D6D8212F5B1200606A3A /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6DC212F5B1200606A3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C6D733212F5FBA00606A3A /* GameViewController.swift in Sources */,
+				68C6D72C212F5EBA00606A3A /* GameScene.swift in Sources */,
+				68C6D728212F5EBA00606A3A /* GameElements.swift in Sources */,
+				68C6D701212F5B1200606A3A /* GameSceneOriginal.swift in Sources */,
+				68C6D6E3212F5B1200606A3A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68C6D6EA212F5B1200606A3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C6D731212F5F8900606A3A /* GameViewController.swift in Sources */,
+				68C6D72D212F5EBA00606A3A /* GameScene.swift in Sources */,
+				68C6D729212F5EBA00606A3A /* GameElements.swift in Sources */,
+				68C6D702212F5B1200606A3A /* GameSceneOriginal.swift in Sources */,
+				68C6D6F1212F5B1200606A3A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		68C6D6C8212F5B1200606A3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68C6D6C4212F5B1200606A3A /* Crappy Turd watchOS App */;
+			targetProxy = 68C6D6C7212F5B1200606A3A /* PBXContainerItemProxy */;
+		};
+		68C6D6D5212F5B1200606A3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68C6D6D1212F5B1200606A3A /* Crappy Turd watchOS App Extension */;
+			targetProxy = 68C6D6D4212F5B1200606A3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		68EB6C4D212BE50400674839 /* Main.storyboard */ = {
+		68C6D6BC212F5B1200606A3A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				68EB6C4E212BE50400674839 /* Base */,
+				68C6D6BD212F5B1200606A3A /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		68EB6C52212BE50500674839 /* LaunchScreen.storyboard */ = {
+		68C6D6BF212F5B1200606A3A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				68EB6C53212BE50500674839 /* Base */,
+				68C6D6C0212F5B1200606A3A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		68C6D6CA212F5B1200606A3A /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68C6D6CB212F5B1200606A3A /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		68C6D6E6212F5B1200606A3A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68C6D6E7212F5B1200606A3A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		68C6D6F4212F5B1200606A3A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68C6D6F5212F5B1200606A3A /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		68EB6C56212BE50500674839 /* Debug */ = {
+		68C6D707212F5B1200606A3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -202,7 +559,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -221,16 +577,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		68EB6C57212BE50500674839 /* Release */ = {
+		68C6D708212F5B1200606A3A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -262,7 +616,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -275,71 +628,274 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		68EB6C59212BE50500674839 /* Debug */ = {
+		68C6D70A212F5B1200606A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Crappy Turd watchOS App Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "Crappy Turd Extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		68C6D70B212F5B1200606A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Crappy Turd watchOS App Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "Crappy Turd Extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		68C6D70E212F5B1200606A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = Crappy_Turd_Extension;
+				INFOPLIST_FILE = "Crappy Turd watchOS App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd.watchkitapp";
+				PRODUCT_NAME = "Crappy Turd";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		68C6D70F212F5B1200606A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = Crappy_Turd_Extension;
+				INFOPLIST_FILE = "Crappy Turd watchOS App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd.watchkitapp";
+				PRODUCT_NAME = "Crappy Turd";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		68C6D712212F5B1200606A3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Crappy Turd/Info.plist";
+				INFOPLIST_FILE = "Crappy Turd iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Crappy Turd";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		68EB6C5A212BE50500674839 /* Release */ = {
+		68C6D713212F5B1200606A3A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Crappy Turd/Info.plist";
+				INFOPLIST_FILE = "Crappy Turd iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Crappy Turd";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68C6D715212F5B1200606A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "tvOS LaunchImage";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Crappy Turd tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd";
+				PRODUCT_NAME = "Crappy Turd";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		68C6D716212F5B1200606A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "tvOS LaunchImage";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Crappy Turd tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd";
+				PRODUCT_NAME = "Crappy Turd";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68C6D718212F5B1200606A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Crappy Turd macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd";
+				PRODUCT_NAME = "Crappy Turd";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		68C6D719212F5B1200606A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Crappy Turd macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshlapham.Crappy-Turd";
+				PRODUCT_NAME = "Crappy Turd";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		68EB6C3B212BE50400674839 /* Build configuration list for PBXProject "Crappy Turd" */ = {
+		68C6D6AB212F5B0F00606A3A /* Build configuration list for PBXProject "Crappy Turd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				68EB6C56212BE50500674839 /* Debug */,
-				68EB6C57212BE50500674839 /* Release */,
+				68C6D707212F5B1200606A3A /* Debug */,
+				68C6D708212F5B1200606A3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		68EB6C58212BE50500674839 /* Build configuration list for PBXNativeTarget "Crappy Turd" */ = {
+		68C6D709212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd watchOS App Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				68EB6C59212BE50500674839 /* Debug */,
-				68EB6C5A212BE50500674839 /* Release */,
+				68C6D70A212F5B1200606A3A /* Debug */,
+				68C6D70B212F5B1200606A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68C6D70D212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd watchOS App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68C6D70E212F5B1200606A3A /* Debug */,
+				68C6D70F212F5B1200606A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68C6D711212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68C6D712212F5B1200606A3A /* Debug */,
+				68C6D713212F5B1200606A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68C6D714212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68C6D715212F5B1200606A3A /* Debug */,
+				68C6D716212F5B1200606A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68C6D717212F5B1200606A3A /* Build configuration list for PBXNativeTarget "Crappy Turd macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68C6D718212F5B1200606A3A /* Debug */,
+				68C6D719212F5B1200606A3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 68EB6C38212BE50400674839 /* Project object */;
+	rootObject = 68C6D6A8212F5B0F00606A3A /* Project object */;
 }
