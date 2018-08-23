@@ -22,7 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         label.text = "\(score)"
         label.zPosition = 5
         label.fontSize = 50
-        label.fontName = "HelveticaNeue-Bold"
+        label.fontName = FontName.ScoreLabel.rawValue
         
         let scoreBg = SKShapeNode()
         scoreBg.position = CGPoint(x: 0, y: 0)
@@ -50,7 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         label.zPosition = 5
         label.fontSize = 15
-        label.fontName = "Helvetica-Bold"
+        label.fontName = FontName.HighScoreLabel.rawValue
         
         return label
     }
@@ -64,7 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         label.fontColor = SKColor.white
         label.zPosition = 5
         label.fontSize = 20
-        label.fontName = "HelveticaNeue"
+        label.fontName = FontName.TapToPlayLabel.rawValue
         
         return label
     }

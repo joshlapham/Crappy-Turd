@@ -26,3 +26,9 @@ enum NodeName: String {
     case Background = "background"
     case WallPair = "wallPair"
 }
+
+enum FontName: String {
+    case TapToPlayLabel = "HelveticaNeue"
+    case HighScoreLabel = "Helvetica-Bold"
+    case ScoreLabel = "HelveticaNeue-Bold"
+}
