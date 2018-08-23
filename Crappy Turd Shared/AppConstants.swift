@@ -17,3 +17,12 @@ enum ImageAsset: String {
     case PooMid = "poo-mid"
     case PooUp = "poo-up"
 }
+
+enum LabelName: String {
+    case TapToPlay = "Tap to Play"
+}
+
+enum NodeName: String {
+    case Background = "background"
+    case WallPair = "wallPair"
+}

@@ -60,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createTapToPlayLabel() -> SKLabelNode {
         let label = SKLabelNode()
         label.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
-        label.text = "Tap to Play"
+        label.text = LabelName.TapToPlay.rawValue
         label.fontColor = SKColor.white
         label.zPosition = 5
         label.fontSize = 20
@@ -112,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         flowerNode.color = SKColor.blue
         
         let wallPair = SKNode()
-        wallPair.name = "wallPair"
+        wallPair.name = NodeName.WallPair.rawValue
         
         let topWall = SKSpriteNode(imageNamed: ImageAsset.PipeOne.rawValue)
         let btmWall = SKSpriteNode(imageNamed: ImageAsset.PipeTwo.rawValue)
@@ -208,7 +208,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let background = SKSpriteNode(imageNamed: ImageAsset.Background.rawValue)
             background.anchorPoint = CGPoint(x: 0, y: 0)
             background.position = CGPoint(x: CGFloat(i) * self.frame.width, y: 0)
-            background.name = "background"
+            background.name = NodeName.Background.rawValue
             
             // TODO: need to figure out how to get `view` property on watchOS and set `background.size`
             #if !os(watchOS)
@@ -270,7 +270,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard self.isGameStarted == true else { return }
         guard self.isDead == false else { return }
         
-        enumerateChildNodes(withName: "background") { (node, error) in
+        enumerateChildNodes(withName: NodeName.Background.rawValue) { (node, error) in
             guard let bg = node as? SKSpriteNode else { return }
             
             bg.position = CGPoint(x: bg.position.x - 2, y: bg.position.y)
@@ -287,7 +287,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // TODO: clean up this mess somehow
         if firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.pillarCategory || firstBody.categoryBitMask == CollisionBitMask.pillarCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory || firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.groundCategory || firstBody.categoryBitMask == CollisionBitMask.groundCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory {
-            enumerateChildNodes(withName: "wallPair", using: { (node, error ) in
+            enumerateChildNodes(withName: NodeName.WallPair.rawValue, using: { (node, error ) in
                 node.speed = 0
                 self.removeAllActions()
             })
