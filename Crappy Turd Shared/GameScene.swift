@@ -259,88 +259,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // TODO: refactor this logic to a generic method that can be called on all platforms
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.isGameStarted == false {
-            self.isGameStarted = true
-            self.turd.physicsBody?.affectedByGravity = true
-            
-            // TODO: create 'Pause' button here
-            
-            // Remove logo image
-            self.logoImage.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
-                self.logoImage.removeFromParent()
-            })
-            
-            // Remove 'Tap to Play' label
-            self.tapToPlayLabel.removeFromParent()
-            
-            self.turd.run(self.repeatActionTurd)
-            
-            // Add pipes/pillars
-            let spawn = SKAction.run({
-                () in
-                self.wallPair = self.createWallPair()
-                self.addChild(self.wallPair)
-            })
-            
-            let delay = SKAction.wait(forDuration: 1.5)
-            let spawnDelay = SKAction.sequence([spawn, delay])
-            let spawnDelayForever = SKAction.repeatForever(spawnDelay)
-            self.run(spawnDelayForever)
-            
-            let distance = CGFloat(self.frame.width + self.wallPair.frame.width)
-            let movePillars = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
-            let removePillars = SKAction.removeFromParent()
-            self.moveAndRemove = SKAction.sequence([movePillars, removePillars])
-            self.wallPair.run(self.moveAndRemove)
-            
-            self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
-            
-        } else {
-            if self.isDead == false {
-                self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
-            }
-        }
-        
-        for touch in touches {
-            let location = touch.location(in: self)
-            
-            // Restart button toggle
-            if self.isDead == true {
-                if self.restartButton.contains(location) == true {
-                    // TODO: refactor this to extension on `UserDefaults`
-                    // TODO: refactor to use App Constants for keys
-                    if UserDefaults.standard.object(forKey: "HighScore") != nil {
-                        let highScore = UserDefaults.standard.integer(forKey: "HighScore")
-                        
-                        if highScore < self.score {
-                            UserDefaults.standard.set(self.score, forKey: "HighScore")
-                        }
-                    } else {
-                        UserDefaults.standard.set(0, forKey: "HighScore")
-                    }
-                    
-                    self.restartScene()
-                }
-                
-            } else {
-                // Pause button toggle
-                if self.pauseButton?.contains(location) == true {
-                    if self.isPaused == false {
-                        self.isPaused = true
-                        // TODO: update Pause button texture image here
-                    } else {
-                        self.isPaused = false
-                        // TODO: update Pause button texture image here
-                    }
-                }
-            }
-        }
-    }
-    
     func didBegin(_ contact: SKPhysicsContact) {
         let firstBody = contact.bodyA
         let secondBody = contact.bodyB
@@ -386,12 +304,8 @@ extension GameScene {
     }
 }
 
-#if os(OSX)
-// Mouse-based event handling
 extension GameScene {
-    // TODO: refactor this logic to a generic method that can be called on all platforms
-    override func mouseUp(with event: NSEvent) {
-        /*
+    func determineState() {
         if self.isGameStarted == false {
             self.isGameStarted = true
             self.turd.physicsBody?.affectedByGravity = true
@@ -435,9 +349,9 @@ extension GameScene {
                 self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
-        
-        let location = event.location(in: self)
-        
+    }
+    
+    func handleEvent(location: CGPoint) {
         // Restart button toggle
         if self.isDead == true {
             if self.restartButton.contains(location) == true {
@@ -468,7 +382,31 @@ extension GameScene {
                 }
             }
         }
-        */
+    }
+}
+
+#if os(iOS)
+// Touch-based event handling
+extension GameScene {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.determineState()
+        
+        for touch in touches {
+            let location = touch.location(in: self)
+            self.handleEvent(location: location)
+        }
+    }
+}
+#endif
+
+#if os(OSX)
+// Mouse-based event handling
+extension GameScene {
+    override func mouseUp(with event: NSEvent) {
+        self.determineState()
+        
+        let location = event.location(in: self)
+        self.handleEvent(location: location)
     }
 }
 #endif
