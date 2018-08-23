@@ -187,6 +187,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return turd
     }
     
+    class func newGameScene() -> GameScene {
+        // Load 'GameScene.sks' as an SKScene.
+        guard let scene = SKScene(fileNamed: "GameScene") as? GameScene else {
+            print("Failed to load GameScene.sks")
+            abort()
+        }
+        
+        // Set the scale mode to scale to fit the window
+        scene.scaleMode = .aspectFill
+        
+        return scene
+    }
+    
     func createScene() {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsBody?.categoryBitMask = CollisionBitMask.groundCategory
