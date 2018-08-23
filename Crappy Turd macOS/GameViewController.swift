@@ -8,7 +8,6 @@
 
 import Cocoa
 import SpriteKit
-import GameplayKit
 
 class GameViewController: NSViewController {
     @IBOutlet var skView: SKView!
