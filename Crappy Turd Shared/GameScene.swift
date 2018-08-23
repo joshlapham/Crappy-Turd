@@ -385,7 +385,7 @@ extension GameScene {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 // Touch-based event handling
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
