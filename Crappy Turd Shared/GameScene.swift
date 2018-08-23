@@ -72,7 +72,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var restartButton: SKSpriteNode = SKSpriteNode()
     
     func createRestartButton() -> SKSpriteNode {
-        let button = SKSpriteNode(imageNamed: "title-gameover")
+        let button = SKSpriteNode(imageNamed: ImageAsset.GameOver.rawValue)
         button.size = CGSize(width: 764 / 3, height: 193 / 3) // TODO: need to set size dynamically
         button.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         button.zPosition = 6
@@ -87,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var logoImage: SKSpriteNode = SKSpriteNode()
     
     func createLogoImage() -> SKSpriteNode {
-        let logoImage = SKSpriteNode(imageNamed: "title-crappyturd")
+        let logoImage = SKSpriteNode(imageNamed: ImageAsset.TitleLogo.rawValue)
         logoImage.size = CGSize(width: 576 / 2, height: 347 / 2) // TODO: need to set size dynamically somehow
         logoImage.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 100)
         logoImage.setScale(0.5)
@@ -100,7 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createWallPair() -> SKNode {
         // TODO: randomise image selection here, to use rest of 'bacteria' image assets
-        let flowerNode = SKSpriteNode(imageNamed: "bacteria-1")
+        let flowerNode = SKSpriteNode(imageNamed: ImageAsset.BacteriaOne.rawValue)
         flowerNode.size = CGSize(width: 21, height: 21)
         flowerNode.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2)
         flowerNode.physicsBody = SKPhysicsBody(rectangleOf: flowerNode.size)
@@ -114,8 +114,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let wallPair = SKNode()
         wallPair.name = "wallPair"
         
-        let topWall = SKSpriteNode(imageNamed: "pipe-1")
-        let btmWall = SKSpriteNode(imageNamed: "pipe-2")
+        let topWall = SKSpriteNode(imageNamed: ImageAsset.PipeOne.rawValue)
+        let btmWall = SKSpriteNode(imageNamed: ImageAsset.PipeTwo.rawValue)
         
         topWall.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 + 420)
         btmWall.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 - 420)
@@ -163,7 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var turd: SKSpriteNode = SKSpriteNode()
     
     func createTurd() -> SKSpriteNode {
-        let turd = SKSpriteNode(texture: self.turdAtlas.textureNamed("poo-down"))
+        let turd = SKSpriteNode(texture: self.turdAtlas.textureNamed(ImageAsset.PooDown.rawValue))
         turd.size = CGSize(width: 50, height: 50)
         turd.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
@@ -205,7 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         for i in 0..<2 {
-            let background = SKSpriteNode(imageNamed: "background")
+            let background = SKSpriteNode(imageNamed: ImageAsset.Background.rawValue)
             background.anchorPoint = CGPoint(x: 0, y: 0)
             background.position = CGPoint(x: CGFloat(i) * self.frame.width, y: 0)
             background.name = "background"
@@ -219,9 +219,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Set up the turd atlas for animation
-        self.turdSprites.append(self.turdAtlas.textureNamed("poo-down"))
-        self.turdSprites.append(self.turdAtlas.textureNamed("poo-mid"))
-        self.turdSprites.append(self.turdAtlas.textureNamed("poo-up"))
+        self.turdSprites.append(self.turdAtlas.textureNamed(ImageAsset.PooDown.rawValue))
+        self.turdSprites.append(self.turdAtlas.textureNamed(ImageAsset.PooMid.rawValue))
+        self.turdSprites.append(self.turdAtlas.textureNamed(ImageAsset.PooUp.rawValue))
         
         self.turd = self.createTurd()
         self.addChild(self.turd)
