@@ -42,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let label = SKLabelNode()
         label.position = CGPoint(x: self.frame.width - 80, y: self.frame.height - 22)
         
+        // TODO: move strings to `AppConstants`
         if let highScore = score {
             label.text = "High Score: \(highScore)"
         } else {
