@@ -161,8 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				68C6D6AF212F5B0F00606A3A /* GameSceneOriginal.swift */,
-				68C6D724212F5EB900606A3A /* GameElements.swift */,
 				68C6D725212F5EB900606A3A /* GameScene.swift */,
+				68C6D724212F5EB900606A3A /* GameElements.swift */,
 				68C6D6B0212F5B1100606A3A /* Assets.xcassets */,
 			);
 			path = "Crappy Turd Shared";

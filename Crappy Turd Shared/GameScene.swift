@@ -244,9 +244,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: SKScene
+    #if os(watchOS)
+    override func sceneDidLoad() {
+        self.createScene()
+    }
+    #else
     override func didMove(to view: SKView) {
         self.createScene()
     }
+    #endif
     
     override func update(_ currentTime: TimeInterval) {
         guard self.isGameStarted == true else { return }
