@@ -9,9 +9,9 @@
 import SpriteKit
 
 // TODO: this probably isn't the right way of doing things with watchOS
-#if !os(watchOS)
-import GameplayKit
-#endif
+//#if !os(watchOS)
+//import GameplayKit
+//#endif
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isGameStarted: Bool = false
@@ -32,8 +32,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let scoreBg = SKShapeNode()
         scoreBg.position = CGPoint(x: 0, y: 0)
         scoreBg.path = CGPath(roundedRect: CGRect(x: CGFloat(-50), y: CGFloat(-30), width: CGFloat(100), height: CGFloat(100)), cornerWidth: 50, cornerHeight: 50, transform: nil)
+        
+        #if os(iOS) || os(tvOS)
         let scoreBgColor = UIColor(red: CGFloat(0.0 / 255.0), green: CGFloat(0.0 / 255.0), blue: CGFloat(0.0 / 255.0), alpha: CGFloat(0.2))
         scoreBg.strokeColor = UIColor.clear
+        #else
+        let scoreBgColor = NSColor(red: CGFloat(0.0 / 255.0), green: CGFloat(0.0 / 255.0), blue: CGFloat(0.0 / 255.0), alpha: CGFloat(0.2))
+        scoreBg.strokeColor = NSColor.clear
+        #endif
+        
         scoreBg.fillColor = scoreBgColor
         scoreBg.zPosition = -1
         
@@ -67,7 +74,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let label = SKLabelNode()
         label.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
         label.text = "Tap to Play"
+        
+        #if os(iOS) || os(tvOS)
         label.fontColor = UIColor.white
+        #else
+        label.fontColor = NSColor.white
+        #endif
+        
         label.zPosition = 5
         label.fontSize = 20
         label.fontName = "HelveticaNeue"
@@ -215,7 +228,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.anchorPoint = CGPoint(x: 0, y: 0)
             background.position = CGPoint(x: CGFloat(i) * self.frame.width, y: 0)
             background.name = "background"
+            
+            // TODO: need to figure out how to get `view` property on watchOS and set `background.size`
+            #if !os(watchOS)
             background.size = (self.view?.bounds.size)! // TODO: don't force unwrap
+            #endif
+            
             self.addChild(background)
         }
         

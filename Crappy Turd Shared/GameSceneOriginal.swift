@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+/*
 class GameSceneOriginal: SKScene {
     
     
@@ -141,4 +142,4 @@ extension GameScene {
 
 }
 #endif
-
+*/
