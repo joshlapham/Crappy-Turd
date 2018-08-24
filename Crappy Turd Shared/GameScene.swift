@@ -97,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return logoImage
     }
     
-    var wallPair: SKNode = SKNode()
+    var wallPair: SKNode?
     
     func createWallPair() -> SKNode {
         // TODO: randomise image selection here, to use rest of 'bacteria' image assets
@@ -149,19 +149,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wallPair.position.y = wallPair.position.y +  randomPosition
         wallPair.addChild(flowerNode)
         
-        wallPair.run(self.moveAndRemove)
+        if let moveAndRemove = self.moveAndRemove {
+            wallPair.run(moveAndRemove)
+        }
         
         return wallPair
     }
     
-    var moveAndRemove: SKAction = SKAction()
+    var moveAndRemove: SKAction?
     
     // Create the turd atlas for animation
     let turdAtlas = SKTextureAtlas(named: "player")
     var turdSprites: [SKTexture] = []
-    var repeatActionTurd: SKAction = SKAction()
+    var repeatActionTurd: SKAction?
     
-    var turd: SKSpriteNode = SKSpriteNode()
+    var turd: SKSpriteNode?
     
     func createTurd() -> SKSpriteNode {
         let turd = SKSpriteNode(texture: self.turdAtlas.textureNamed(ImageAsset.PooDown.rawValue))
@@ -225,7 +227,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.turdSprites.append(self.turdAtlas.textureNamed(ImageAsset.PooUp.rawValue))
         
         self.turd = self.createTurd()
-        self.addChild(self.turd)
+        guard let turd = self.turd else { return }
+        self.addChild(turd)
         
         // Prepare to animate the turd and repeat the animation forever
         let animateTurd = SKAction.animate(with: self.turdSprites, timePerFrame: 0.1)
@@ -290,7 +293,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let firstBody = contact.bodyA
         let secondBody = contact.bodyB
         
-        // TODO: clean up this mess somehow
+        // TODO: clean up this somehow
         if firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.pillarCategory || firstBody.categoryBitMask == CollisionBitMask.pillarCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory || firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.groundCategory || firstBody.categoryBitMask == CollisionBitMask.groundCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory {
             enumerateChildNodes(withName: NodeName.WallPair.rawValue, using: { (node, error ) in
                 node.speed = 0
@@ -306,7 +309,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 // TODO: remove Pause button here
                 
-                self.turd.removeAllActions()
+                self.turd?.removeAllActions()
             }
             
         } else if firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.bacteriaCategory {
@@ -336,7 +339,7 @@ extension GameScene {
     func determineState() {
         if self.isGameStarted == false {
             self.isGameStarted = true
-            self.turd.physicsBody?.affectedByGravity = true
+            self.turd?.physicsBody?.affectedByGravity = true
             
             // TODO: create 'Pause' button here
             
@@ -348,13 +351,15 @@ extension GameScene {
             // Remove 'Tap to Play' label
             self.tapToPlayLabel?.removeFromParent()
             
-            self.turd.run(self.repeatActionTurd)
+            guard let repeatActionTurd = self.repeatActionTurd else { return }
+            self.turd?.run(repeatActionTurd)
             
             // Add pipes/pillars
             let spawn = SKAction.run({
                 () in
                 self.wallPair = self.createWallPair()
-                self.addChild(self.wallPair)
+                guard let wallPair = self.wallPair else { return }
+                self.addChild(wallPair)
             })
             
             let delay = SKAction.wait(forDuration: 1.5)
@@ -362,19 +367,30 @@ extension GameScene {
             let spawnDelayForever = SKAction.repeatForever(spawnDelay)
             self.run(spawnDelayForever)
             
-            let distance = CGFloat(self.frame.width + self.wallPair.frame.width)
+            // NOTE - need to do this the first time, otherwise pipes won't show up
+            if self.wallPair == nil {
+                self.wallPair = self.createWallPair()
+            }
+            
+            guard let wallPair = self.wallPair else {
+                print("\(#function) - no wallPair!")
+                return
+            }
+            
+            let distance = CGFloat(self.frame.width + wallPair.frame.width)
             let movePillars = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
             let removePillars = SKAction.removeFromParent()
             self.moveAndRemove = SKAction.sequence([movePillars, removePillars])
-            self.wallPair.run(self.moveAndRemove)
+            guard let moveAndRemove = self.moveAndRemove else { return }
+            self.wallPair?.run(moveAndRemove)
             
-            self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+            self.turd?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             
         } else {
             if self.isDead == false {
-                self.turd.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                self.turd.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+                self.turd?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                self.turd?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
     }
