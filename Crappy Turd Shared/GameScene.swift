@@ -14,7 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var score: Int = 0
     
-    var scoreLabel: SKLabelNode = SKLabelNode()
+    var scoreLabel: SKLabelNode?
     
     func createScoreLabel(score: Int) -> SKLabelNode {
         let label = SKLabelNode()
@@ -36,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return label
     }
     
-    var highScoreLabel: SKLabelNode = SKLabelNode()
+    var highScoreLabel: SKLabelNode?
     
     func createHighScoreLabel(score: Int?) -> SKLabelNode {
         let label = SKLabelNode()
@@ -56,7 +56,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return label
     }
     
-    var tapToPlayLabel: SKLabelNode = SKLabelNode()
+    var tapToPlayLabel: SKLabelNode?
     
     func createTapToPlayLabel() -> SKLabelNode {
         let label = SKLabelNode()
@@ -70,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return label
     }
     
-    var restartButton: SKSpriteNode = SKSpriteNode()
+    var restartButton: SKSpriteNode?
     
     func createRestartButton() -> SKSpriteNode {
         let button = SKSpriteNode(imageNamed: ImageAsset.GameOver.rawValue)
@@ -85,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var pauseButton: SKSpriteNode?
     
-    var logoImage: SKSpriteNode = SKSpriteNode()
+    var logoImage: SKSpriteNode?
     
     func createLogoImage() -> SKSpriteNode {
         let logoImage = SKSpriteNode(imageNamed: ImageAsset.TitleLogo.rawValue)
@@ -233,18 +233,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Add score labels
         self.scoreLabel = self.createScoreLabel(score: self.score)
-        self.addChild(self.scoreLabel)
+        guard let scoreLabel = self.scoreLabel else { return }
+        self.addChild(scoreLabel)
         
         self.highScoreLabel = self.createHighScoreLabel(score: UserDefaults.standard.getHighScore())
-        self.addChild(self.highScoreLabel)
+        guard let highScoreLabel = self.highScoreLabel else { return }
+        self.addChild(highScoreLabel)
         
         // Add logo image
         self.logoImage = self.createLogoImage()
-        self.addChild(self.logoImage)
+        guard let logoImage = self.logoImage else { return }
+        self.addChild(logoImage)
         
         // Add 'Tap to Play' label
         self.tapToPlayLabel = self.createTapToPlayLabel()
-        self.addChild(self.tapToPlayLabel)
+        guard let tapToPlayLabel = self.tapToPlayLabel else { return }
+        self.addChild(tapToPlayLabel)
     }
     
     func restartScene() {
@@ -297,7 +301,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.isDead = true
                 // Create Restart button
                 self.restartButton = self.createRestartButton()
-                self.addChild(self.restartButton)
+                guard let restartButton = self.restartButton else { return }
+                self.addChild(restartButton)
                 
                 // TODO: remove Pause button here
                 
@@ -306,12 +311,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         } else if firstBody.categoryBitMask == CollisionBitMask.turdCategory && secondBody.categoryBitMask == CollisionBitMask.bacteriaCategory {
             self.score += 1
-            self.scoreLabel.text = "\(self.score)"
+            self.scoreLabel?.text = "\(self.score)"
             secondBody.node?.removeFromParent()
             
         } else if firstBody.categoryBitMask == CollisionBitMask.bacteriaCategory && secondBody.categoryBitMask == CollisionBitMask.turdCategory {
             self.score += 1
-            self.scoreLabel.text = "\(self.score)"
+            self.scoreLabel?.text = "\(self.score)"
             firstBody.node?.removeFromParent()
         }
     }
@@ -336,12 +341,12 @@ extension GameScene {
             // TODO: create 'Pause' button here
             
             // Remove logo image
-            self.logoImage.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
-                self.logoImage.removeFromParent()
+            self.logoImage?.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
+                self.logoImage?.removeFromParent()
             })
             
             // Remove 'Tap to Play' label
-            self.tapToPlayLabel.removeFromParent()
+            self.tapToPlayLabel?.removeFromParent()
             
             self.turd.run(self.repeatActionTurd)
             
@@ -377,7 +382,7 @@ extension GameScene {
     func handleEvent(location: CGPoint) {
         // Restart button toggle
         if self.isDead == true {
-            if self.restartButton.contains(location) == true {
+            if self.restartButton?.contains(location) == true {
                 if let highScore = UserDefaults.standard.getHighScore() {
                     if highScore < self.score {
                         UserDefaults.standard.setHighScore(score: self.score)
