@@ -14,6 +14,8 @@ Credit to John Paine for the idea and image assets. Check out his [Instagram](ht
 
 Credit to [this blog post by Akhilendra Singh](http://sweettutos.com/2017/03/09/build-your-own-flappy-bird-game-with-swift-3-and-spritekit/) for the tutorial and code ideas.
 
+![](demo.gif)
+
 ## How to Run
 
 ### Environment
